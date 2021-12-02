@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -e
+
+here=(
+    "$PWD/.bashrc"
+    "$PWD/.gitconfig"
+    "$PWD/.tmux.conf"
+    "$PWD/init.vim"
+    "$PWD/.vimrc"
+)
+
+there=(
+    "$HOME/.bashrc"
+    "$HOME/.gitconfig"
+    "$HOME/.tmux.conf"
+    "$HOME/.config/nvim/init.vim"
+    "$HOME/.vimrc"
+)
+
+if [[ "${#here[@]}" != "${#there[@]}" ]]; then
+    echo 'ERROR: here count != there count' >&2
+fi
+
+cp_old() {
+    if [[ -z "$old_dir" ]]; then
+        old_dir='old'
+        local i=1
+        while [[ -e "$old_dir$i" ]]; do
+            (( i++ ))
+        done
+        old_dir+="$i"
+        mkdir "$old_dir"
+    fi
+
+    cp "$1" "$old_dir"
+}
+
+for i in "${!here[@]}"; do
+    if [[ -e "${there[i]}" ]]; then
+        [[ -L "${there[i]}" ]] || cp_old "${there[i]}"
+        rm "${there[i]}"
+    fi
+    
+    there_dir="${there[i]%/*}"
+    [[ -d "$there_dir" ]] || mkdir -p "$there_dir"
+    ln -sf "${here[i]}" "$there_dir"
+done
