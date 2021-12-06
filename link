@@ -3,6 +3,7 @@
 set -e
 
 here=(
+    "$PWD/.bash_colors"
     "$PWD/.bashrc"
     "$PWD/.gitconfig"
     "$PWD/.tmux.conf"
@@ -11,6 +12,7 @@ here=(
 )
 
 there=(
+    "$HOME/.bash_colors"
     "$HOME/.bashrc"
     "$HOME/.gitconfig"
     "$HOME/.tmux.conf"
