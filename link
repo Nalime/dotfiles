@@ -2,28 +2,6 @@
 
 set -e
 
-here=(
-    "$PWD/.bash_colors"
-    "$PWD/.bashrc"
-    "$PWD/.gitconfig"
-    "$PWD/.tmux.conf"
-    "$PWD/init.vim"
-    "$PWD/.vimrc"
-)
-
-there=(
-    "$HOME/.bash_colors"
-    "$HOME/.bashrc"
-    "$HOME/.gitconfig"
-    "$HOME/.tmux.conf"
-    "$HOME/.config/nvim/init.vim"
-    "$HOME/.vimrc"
-)
-
-if [[ "${#here[@]}" != "${#there[@]}" ]]; then
-    echo 'ERROR: here count != there count' >&2
-fi
-
 cp_old() {
     if [[ -z "$old_dir" ]]; then
         old_dir='old'
@@ -38,13 +16,21 @@ cp_old() {
     cp "$1" "$old_dir"
 }
 
-for i in "${!here[@]}"; do
-    if [[ -e "${there[i]}" ]]; then
-        [[ -L "${there[i]}" ]] || cp_old "${there[i]}"
-        rm "${there[i]}"
+while read name; do
+    there="$HOME/${name:2}"
+    [[ -h "$there" ]] && rm "$there"
+    if [[ -e "$there" ]]; then
+        cp_old "$there"
+        rm "$there"
     fi
     
-    there_dir="${there[i]%/*}"
+    there_dir="${there%/*}"
     [[ -d "$there_dir" ]] || mkdir -p "$there_dir"
-    ln -sf "${here[i]}" "$there_dir"
-done
+
+    here="$PWD/${name:2}"
+    ln -sf "$here" "$there_dir"
+done <<< "$(find . -type f \
+    \! -path './link' \
+    \! -path './old*' \
+    \! -path './.git*' \
+)"
