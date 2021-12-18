@@ -15,6 +15,10 @@
 " bg  background
 set nu rnu ru so=5 hls ts=4 sw=4 et si bg=dark
 
+" Column guide @ column 80
+set cc=80
+hi ColorColumn ctermbg=darkgray
+
 " Syntax highlighting
 syn on
 

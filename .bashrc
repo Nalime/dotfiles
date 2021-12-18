@@ -12,7 +12,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 # In case the environment doesn't recognize xterm-kitty QwQ
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 . ~/.bash_colors
 
