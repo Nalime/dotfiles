@@ -46,7 +46,7 @@ ${esc_format["bold"]}${esc_color["l_blue"]}\W${esc_format["reset"]}\
 # from: https://wiki.archlinux.org/index.php/Color_output_in_console#man
 
 # bold/blink
-export LESS_TERMCAP_md=${format["bold"]}${color["l_purple"]}
+export LESS_TERMCAP_md=${format["bold"]}${color["l_blue"]}
 export LESS_TERMCAP_me=${format["reset"]}
 
 # underline

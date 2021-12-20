@@ -138,6 +138,10 @@ bindsym Print exec maim |\
             tee "$HOME/Pictures/$(date +%FT%T.%N)" |\
             xclip -sel clip -t image/png
 
+# Use xbacklight to adjust brightness.
+bindsym XF86MonBrightnessUp   exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl \
             set-sink-volume @DEFAULT_SINK@ +5%
@@ -280,6 +284,10 @@ bindsym $mod+Shift+Ctrl+x move container to workspace $wsX
 bindsym $mod+Shift+Ctrl+y move container to workspace $wsY
 bindsym $mod+Shift+Ctrl+z move container to workspace $wsZ
 
+########## PERFERENCES ##########
+
+focus_follows_mouse no
+
 ########## RICING ##########
 
 ### Color Palette ###
@@ -300,10 +308,10 @@ client.urgent           $bg-brig $bg-brig $tx-ligh $bg-indi
 ### Window Borders ###
 for_window [class=".*"] border pixel 1
 
-gaps inner 5
+gaps inner 10
 
-### Polybar ###
-gaps top 28
+### polybar ###
+gaps top 34
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ### picom ###
