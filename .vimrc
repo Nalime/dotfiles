@@ -11,6 +11,10 @@
 " bg  background
 set nu rnu ru so=5 hls ts=4 sw=4 et si bg=dark
 
+" Column guide @ column 80
+set cc=80
+hi ColorColumn ctermbg=black
+
 " Syntax highlighting
 syn on
 
@@ -40,6 +44,3 @@ set bdir=$HOME/.vim/backups
 " Undo
 " ul undolevels  udf undofile
 set ul=999999 udf
-
-" polyglot
-packadd vim-polyglot

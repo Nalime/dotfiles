@@ -52,28 +52,39 @@ set ul=999999 udf
 " vim-plug
 call plug#begin()
 
-Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1
-" https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
-let g:rainbow_conf = {
-\	'guifgs':   ['#d7ffaf', '#ffafaf', '#afd7ff'],
-\	'ctermfgs': [    '193',     '217',     '153'],
-\   'operators': '',
-\}
+" Plug 'sheerun/vim-polyglot'
+
+" Plug 'luochen1990/rainbow'
+" let g:rainbow_active = 1
+" " https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
+" let g:rainbow_conf = {
+" \	'guifgs':   ['#d7ffaf', '#ffafaf', '#afd7ff'],
+" \	'ctermfgs': [    '193',     '217',     '153'],
+" \   'operators': '',
+" \}
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
-Plug 'takac/vim-hardtime'
-let g:hardtime_default_on = 1
-let g:hardtime_showmsg = 1
-let g:hardtime_allow_different_key = 1
-let g:hardtime_maxcount = 2
-let g:hardtime_timeout = 500
+" Plug 'takac/vim-hardtime'
+" let g:hardtime_default_on = 1
+" let g:hardtime_showmsg = 1
+" let g:hardtime_allow_different_key = 1
+" let g:hardtime_maxcount = 2
+" let g:hardtime_timeout = 1000
 
 call plug#end()
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = true,
+    },
+}
+EOF
 
 " Notifys when loaded
 echo 'init.vim loaded'

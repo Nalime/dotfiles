@@ -36,7 +36,6 @@ prompt_face() {
 
 PS1="\
 ${esc_format["bold"]}${esc_color["l_green"]}\u${esc_format["reset"]}\
-@${esc_format["bold"]}${esc_color["d_green"]}\h${esc_format["reset"]}\
 :\$(prompt_face):\
 ${esc_format["bold"]}${esc_color["l_blue"]}\W${esc_format["reset"]}\
 \\$ \
@@ -64,3 +63,23 @@ ulimit -s $((256 * 1024))
 
 # If on virtual terminal and possible, set a bigger font
 setfont ter-124b 2> /dev/null ; :
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/landy/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/landy/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/landy/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/landy/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
