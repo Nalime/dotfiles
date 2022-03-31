@@ -7,7 +7,7 @@
 
 # ==> RAINBOWS <==
 
-alias diff='diff --color=auto'
+alias diff='diff --color=auto' # does NOT work on BSD
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
@@ -83,3 +83,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+PATH="$PATH":~/.local/bin
