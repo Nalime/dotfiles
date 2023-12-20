@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+if [[ $(uname -s) == "Linux" ]]; then
+    # https://man.archlinux.org/man/terminfo.5.en
+
+    declare -A format
+    format["reset"]="$(tput sgr0)"
+    format["bold"]="$(tput bold)"
+    format["italic"]="$(tput sitm)"
+    format["underline"]="$(tput smul)"
+
+    declare -A color
+    color["black"]="$(tput setaf 0)"
+    color["d_red"]="$(tput setaf 1)"
+    color["d_green"]="$(tput setaf 2)"
+    color["d_yellow"]="$(tput setaf 3)"
+    color["d_blue"]="$(tput setaf 4)"
+    color["d_purple"]="$(tput setaf 5)"
+    color["d_cyan"]="$(tput setaf 6)"
+    color["l_gray"]="$(tput setaf 7)"
+    color["d_gray"]="$(tput setaf 8)"
+    color["l_red"]="$(tput setaf 9)"
+    color["l_green"]="$(tput setaf 10)"
+    color["l_yellow"]="$(tput setaf 11)"
+    color["l_blue"]="$(tput setaf 12)"
+    color["l_purple"]="$(tput setaf 13)"
+    color["l_cyan"]="$(tput setaf 14)"
+    color["white"]="$(tput setaf 15)"
+elif [[ $(uname -s) == "FreeBSD" ]]; then
+    # https://www.freebsd.org/cgi/man.cgi?query=terminfo
+
+    declare -A format
+    format["reset"]="$(tput me)"
+    format["bold"]="$(tput md)"
+    format["italic"]="$(tput ZH)"
+    format["underline"]="$(tput us)"
+
+    declare -A color
+    color["black"]="$(tput Sf 0)"
+    color["d_red"]="$(tput Sf 1)"
+    color["d_green"]="$(tput Sf 2)"
+    color["d_yellow"]="$(tput Sf 3)"
+    color["d_blue"]="$(tput Sf 4)"
+    color["d_purple"]="$(tput Sf 5)"
+    color["d_cyan"]="$(tput Sf 6)"
+    color["l_gray"]="$(tput Sf 7)"
+    color["d_gray"]="$(tput Sf 8)"
+    color["l_red"]="$(tput Sf 9)"
+    color["l_green"]="$(tput Sf 10)"
+    color["l_yellow"]="$(tput Sf 11)"
+    color["l_blue"]="$(tput Sf 12)"
+    color["l_purple"]="$(tput Sf 13)"
+    color["l_cyan"]="$(tput Sf 14)"
+    color["white"]="$(tput Sf 15)"
+fi
+
+declare -A esc_format
+for i in ${!format[@]}; do
+    esc_format["$i"]="\001${format["$i"]}\002";
+done
+
+declare -A esc_color
+for i in ${!color[@]}; do
+    esc_color["$i"]="\001${color["$i"]}\002";
+done

@@ -1,0 +1,3 @@
+! Default: 96
+! Set according to screen size etc.
+Xft.dpi: 120
