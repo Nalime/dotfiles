@@ -40,5 +40,5 @@ vim.opt.undolevels = 999999
 -- Always show signcolumn (for plugins)
 vim.opt.signcolumn = "yes"
 
--- Hide vanilla mode display (for lualine)
+-- Hide vanilla mode display (in favor of lualine)
 vim.opt.showmode = false

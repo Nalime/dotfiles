@@ -5,12 +5,14 @@ vim.loader.enable()
 -- Use `gf` to navigate
 
 -- General
+-- ./general/
 require("nalime.general.mappings")
 require("nalime.general.options")
 require("nalime.general.packer")
 require("nalime.general.theme")
 
 -- Plugins
+-- ./plugins/
 require("nalime.plugins.bufferline")
 require("nalime.plugins.cmp")
 require("nalime.plugins.gitsigns")
