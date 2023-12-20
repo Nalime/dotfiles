@@ -104,4 +104,4 @@ oj_path=~/A/kyopro/tools/oj-utils
 
 # Gigantic stack size; pretty much necessary for kyopro
 # Best to set according to actual memory limits
-# ulimit -s $((2 * 1024 * 1024))
+# ulimit -Ss $((2 * 1024 * 1024))
