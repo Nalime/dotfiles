@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ $(uname -s) == "Linux" ]]; then
+os_type=$(uname -s)
+if [[ "$os_type" == "Linux" ||  "$os_type" == "Darwin"  ]]; then
     # https://man.archlinux.org/man/terminfo.5.en
 
     declare -A format
@@ -26,7 +27,7 @@ if [[ $(uname -s) == "Linux" ]]; then
     color["l_purple"]="$(tput setaf 13)"
     color["l_cyan"]="$(tput setaf 14)"
     color["white"]="$(tput setaf 15)"
-elif [[ $(uname -s) == "FreeBSD" ]]; then
+elif [[ "$os_type" == "FreeBSD" ]]; then
     # https://www.freebsd.org/cgi/man.cgi?query=terminfo
 
     declare -A format
