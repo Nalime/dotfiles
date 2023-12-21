@@ -120,10 +120,6 @@ add("n", "<Leader>bq",
 -- LSP
 -- Prefix: l
 
-add("n", "<Leader>lD",
-    "<Cmd>lua vim.lsp.buf.declaration()<CR>",
-    "Jump to declaration")
-
 add("n", "<Leader>ld",
     "<Cmd>lua vim.lsp.buf.definition()<CR>",
     "Jump to definition")
@@ -136,7 +132,7 @@ add("n", "<Leader>la",
     "<Cmd>lua vim.lsp.buf.code_action()<CR>",
     "Select available code action on current line")
 
-add("n", "<Leader>ld",
+add("n", "<Leader>lf",
     "<Cmd>lua vim.diagnostic.open_float()<CR>",
     "Expand diagnostic on current line")
 
