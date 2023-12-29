@@ -39,6 +39,11 @@ export HISTCONTROL=$HISTCONTROL:ignorespace
 # General settings #
 ####################
 
+# Editors
+
+export EDITOR=vim
+export VISUAL=nvim
+
 # Fancy prompt
 # Additionally, on nonzero return, the value is shown and the face changes
 
