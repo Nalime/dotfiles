@@ -4,7 +4,18 @@ if not status_ok then
 end
 
 whichkey.setup({
-
+    triggers_nowait = {
+        -- marks
+        -- "`",
+        -- "'",
+        -- "g`",
+        -- "g'",
+        -- registers
+        -- '"',
+        -- "<c-r>",
+        -- spelling
+        -- "z=",
+    },
 })
 
 whichkey.register({
