@@ -94,11 +94,6 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig"
     use "williamboman/mason-lspconfig.nvim"
 
-    -- nvim-dap: DAP
-    -- DAP = Debug adapter protocol
-    -- use "mfussenegger/nvim-dap"
-    -- use "rcarriga/nvim-dap-ui"
-
     -- null-ls: Formatters and linters
     use "jose-elias-alvarez/null-ls.nvim"
 
