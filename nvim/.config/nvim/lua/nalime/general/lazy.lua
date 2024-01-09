@@ -28,7 +28,6 @@ lazy.setup({
         "nvim-treesitter/nvim-treesitter",
         version = "*",
     },
-    "nvim-treesitter/playground",
     "nvim-treesitter/nvim-treesitter-context",
 
     -- bufferline: Bufferline
