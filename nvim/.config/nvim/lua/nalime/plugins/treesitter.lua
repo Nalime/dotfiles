@@ -4,7 +4,12 @@ if not status_ok then
 end
 
 treesitter.setup({
-    ensure_installed = { "lua" },
+    ensure_installed = {
+        "c",
+        "cpp",
+        "lua",
+        "python",
+    },
     auto_install = true,
     highlight = {
         enable = true,
