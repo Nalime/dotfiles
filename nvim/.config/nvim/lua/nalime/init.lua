@@ -8,7 +8,7 @@ vim.loader.enable()
 -- ./general/
 require("nalime.general.mappings")
 require("nalime.general.options")
-require("nalime.general.packer")
+require("nalime.general.lazy")
 require("nalime.general.theme")
 
 -- Plugins
