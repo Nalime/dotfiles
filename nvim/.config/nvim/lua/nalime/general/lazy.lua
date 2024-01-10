@@ -78,8 +78,8 @@ lazy.setup({
     { "neovim/nvim-lspconfig", version = "*", },
     { "williamboman/mason-lspconfig.nvim", version = "*", },
 
-    -- null-ls: Formatters and linters
-    "jose-elias-alvarez/null-ls.nvim",
+    -- none-ls: Formatters and linters
+    "nvimtools/none-ls.nvim",
 
     -- nvim-surround: Surround text objects with things (e.g. brackets)
     {
