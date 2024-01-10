@@ -19,8 +19,8 @@ if not status_ok then
 end
 
 lazy.setup({
-    -- Colorscheme darkplus
-    "LunarVim/Colorschemes",
+    -- catppuccin colorscheme
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
     -- nvim-treesitter: Online parser in Neovim
     -- Syntax highlighting and more
