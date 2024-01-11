@@ -14,8 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
 
-lazy.setup({
+local plugins = {
     { import = "nalime.themes" },
     { import = "nalime.plugins" },
     { import = "nalime.plugins.lsp" },
-})
+}
+
+local config = {
+    change_detection = { notify = false },
+}
+
+lazy.setup(plugins, config)

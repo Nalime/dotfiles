@@ -5,7 +5,8 @@ return {
     priority = 1000,
 
     config = function()
-        catppuccin = require("catppuccin")
+        local catppuccin = require("catppuccin")
+
         catppuccin.setup({
             flavour = "frappe", -- latte, frappe, macchiato, mocha
             background = { -- :h background
