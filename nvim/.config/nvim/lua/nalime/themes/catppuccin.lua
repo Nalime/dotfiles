@@ -26,8 +26,8 @@ return {
             no_underline = false, -- Force no underline
             styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
                 comments = { "italic" }, -- Change the style of comments
-                conditionals = {},
-                loops = {},
+                conditionals = { "italic" },
+                loops = { "italic" },
                 functions = {},
                 keywords = {},
                 strings = {},
