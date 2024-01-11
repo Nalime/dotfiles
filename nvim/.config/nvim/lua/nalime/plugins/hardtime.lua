@@ -8,5 +8,17 @@ return {
         max_time = 500,
         max_count = 3,
         disable_mouse = false,
+
+        disabled_filetypes = {
+            "NvimTree",
+            "alpha",
+            "lazy",
+            "mason",
+            "netrw",
+            "qf",
+            "query",
+            "tsplayground",
+            "undotree",
+        },
     },
 }
