@@ -1,10 +1,8 @@
 return {
-    -- mason-lspconfig: Install LSP servers automatically via Mason
-    "williamboman/mason-lspconfig.nvim",
+    -- mason-null-ls: Install formatters and linters automatically via Mason
+    "jay-babu/mason-null-ls.nvim",
     version = "*",
-    dependencies = "williamboman/mason.nvim",
-
-    enabled = false,
+    dependencies = { "williamboman/mason.nvim", "nvimtools/none-ls.nvim" },
 
     config = function()
         local mason_null_ls = require("mason-null-ls")
