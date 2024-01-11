@@ -133,6 +133,10 @@ add("n", "<Leader>la",
     "Select available code action on current line")
 
 add("n", "<Leader>lf",
+    "<Cmd>lua vim.lsp.buf.format()<CR>",
+    "Auto-format")
+
+add("n", "<Leader>lw",
     "<Cmd>lua vim.diagnostic.open_float()<CR>",
     "Expand diagnostic on current line")
 
