@@ -35,10 +35,4 @@ return {
         dependencies = "hrsh7th/nvim-cmp",
         event = "VeryLazy",
     },
-
-    {
-        "neovim/nvim-lspconfig",
-        version = "*",
-        event = "VeryLazy",
-    },
 }
