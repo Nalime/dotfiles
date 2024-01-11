@@ -8,8 +8,6 @@ return {
     config = function()
         local obsidian = require("obsidian")
 
-        vim.opt.conceallevel = 1
-
         obsidian.setup({
             dir = "~/A/obsidian-vault",
             notes_subdir = "00 Working",
