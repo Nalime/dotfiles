@@ -14,6 +14,7 @@ return {
                 "clangd",
                 "cmake",
                 "lua_ls",
+                "marksman",
                 "pyright",
             },
             automatic_installation = true,

@@ -30,6 +30,8 @@ return {
             },
         })
 
+        lspconfig["marksman"].setup({})
+
         lspconfig["pyright"].setup({
             settings = {
                 python = {
