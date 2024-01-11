@@ -5,9 +5,5 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     event = "VeryLazy",
 
-    config = function()
-        local telescope = require("telescope")
-
-        telescope.setup({})
-    end,
+    opts = {},
 }

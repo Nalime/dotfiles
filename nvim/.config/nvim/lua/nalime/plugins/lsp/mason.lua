@@ -5,9 +5,5 @@ return {
     version = "*",
     event = "VeryLazy",
 
-    config = function()
-        local mason = require("mason")
-
-        mason.setup({})
-    end,
+    opts = {},
 }

@@ -5,19 +5,15 @@ return {
     dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
     event = "VeryLazy",
 
-    config = function()
-        local mason_lspconfig = require("mason-lspconfig")
-
-        mason_lspconfig.setup({
-            ensure_installed = {
-                "bashls",
-                "clangd",
-                "cmake",
-                "lua_ls",
-                "marksman",
-                "pyright",
-            },
-            automatic_installation = true,
-        })
-    end,
+    opts = {
+        ensure_installed = {
+            "bashls",
+            "clangd",
+            "cmake",
+            "lua_ls",
+            "marksman",
+            "pyright",
+        },
+        automatic_installation = true,
+    },
 }
