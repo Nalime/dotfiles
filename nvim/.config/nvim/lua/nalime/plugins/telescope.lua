@@ -3,6 +3,7 @@ return {
     "nvim-telescope/telescope.nvim",
     version = "*",
     dependencies = "nvim-lua/plenary.nvim",
+    event = "VeryLazy",
 
     config = function()
         local telescope = require("telescope")

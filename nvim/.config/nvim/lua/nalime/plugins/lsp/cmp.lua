@@ -1,6 +1,7 @@
 return {
     -- cmp: Completion plugins
     "hrsh7th/nvim-cmp",
+    event = "VeryLazy",
 
     config = function()
         local cmp = require("cmp")

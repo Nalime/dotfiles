@@ -3,6 +3,7 @@ return {
     -- Currently disabled since it gets in the way too much
     -- It also messes up with undo history
     "windwp/nvim-autopairs",
+    event = "VeryLazy",
     enabled = false,
 
     config = function()

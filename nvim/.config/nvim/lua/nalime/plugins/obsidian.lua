@@ -3,6 +3,7 @@ return {
     "epwalsh/obsidian.nvim",
     version = "*",
     dependencies = "nvim-lua/plenary.nvim",
+    event = "VeryLazy",
 
     config = function()
         local obsidian = require("obsidian")

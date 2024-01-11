@@ -3,6 +3,7 @@ return {
     -- Great for OS-agnostic package syncing
     "williamboman/mason.nvim",
     version = "*",
+    event = "VeryLazy",
 
     config = function()
         local mason = require("mason")

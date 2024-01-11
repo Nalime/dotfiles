@@ -2,6 +2,7 @@ return {
     -- indent-blankline: Indent guides and scope boundaries
     "lukas-reineke/indent-blankline.nvim",
     version = "*",
+    event = "VeryLazy",
 
     config = function()
         local indent_blankline = require("ibl")

@@ -1,6 +1,7 @@
 return {
     -- undotree: Undo tree traversal and visualization
     "mbbill/undotree",
+    event = "VeryLazy",
 
     config = function()
         -- This is a Vim plugin

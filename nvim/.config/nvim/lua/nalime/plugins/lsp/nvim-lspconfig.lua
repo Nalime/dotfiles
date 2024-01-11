@@ -2,6 +2,7 @@ return {
     -- nvim-lspconfig: Configure LSP servers
     "neovim/nvim-lspconfig",
     version = "*",
+    event = "VeryLazy",
 
     config = function()
         local lspconfig = require("lspconfig")

@@ -3,6 +3,7 @@ return {
     -- Syntax highlighting and more
     "nvim-treesitter/nvim-treesitter",
     version = "*",
+    event = "VeryLazy",
 
     config = function()
         local treesitter = require("nvim-treesitter")
