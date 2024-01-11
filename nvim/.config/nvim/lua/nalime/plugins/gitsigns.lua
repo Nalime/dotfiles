@@ -1,8 +1,13 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
-    return
-end
+return {
+    -- gitsigns: Show Git hunks
+    "lewis6991/gitsigns.nvim",
+    version = "*",
 
-gitsigns.setup({
+    config = function()
+        local gitsigns = require("gitsigns")
 
-})
+        require("scrollbar.handlers.gitsigns").setup()
+
+        gitsigns.setup({})
+    end,
+}

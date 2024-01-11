@@ -1,22 +1,28 @@
-local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-    return
-end
+return {
+    -- nvim-treesitter: Online parser in Neovim
+    -- Syntax highlighting and more
+    "nvim-treesitter/nvim-treesitter",
+    version = "*",
 
-treesitter.setup({
-    ensure_installed = {
-        "c",
-        "cpp",
-        "lua",
-        "python",
-    },
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { "markdown" },
-    },
-    playground = {
-        enable = true,
-        disable = {},
-    },
-})
+    config = function()
+        local treesitter = require("nvim-treesitter")
+
+        treesitter.setup({
+            ensure_installed = {
+                "c",
+                "cpp",
+                "lua",
+                "python",
+            },
+            auto_install = true,
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = { "markdown" },
+            },
+            playground = {
+                enable = true,
+                disable = {},
+            },
+        })
+    end,
+}

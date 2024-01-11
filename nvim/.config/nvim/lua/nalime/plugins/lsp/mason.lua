@@ -1,8 +1,12 @@
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
-    return
-end
+return {
+    -- mason: Package manager in Neovim
+    -- Great for OS-agnostic package syncing
+    "williamboman/mason.nvim",
+    version = "*",
 
-mason.setup({
+    config = function()
+        local mason = require("mason")
 
-})
+        mason.setup({})
+    end,
+}

@@ -1,8 +1,12 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-    return
-end
+return {
+    -- telescope: Fuzzy finder and more
+    "nvim-telescope/telescope.nvim",
+    version = "*",
+    dependencies = "nvim-lua/plenary.nvim",
 
-telescope.setup({
+    config = function()
+        local telescope = require("telescope")
 
-})
+        telescope.setup({})
+    end,
+}

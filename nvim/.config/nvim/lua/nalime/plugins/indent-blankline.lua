@@ -1,18 +1,23 @@
-local status_ok, indent_blankline = pcall(require, "ibl")
-if not status_ok then
-    return
-end
+return {
+    -- indent-blankline: Indent guides and scope boundaries
+    "lukas-reineke/indent-blankline.nvim",
+    version = "*",
 
-indent_blankline.setup({
-    exclude = {
-        filetypes = {
-            "",
-            "checkhealth",
-            "help",
-            "lspinfo",
-            "man",
-            "packer",
-            "undotree",
-        },
-    },
-})
+    config = function()
+        local indent_blankline = require("ibl")
+
+        indent_blankline.setup({
+            exclude = {
+                filetypes = {
+                    "",
+                    "checkhealth",
+                    "help",
+                    "lspinfo",
+                    "man",
+                    "packer",
+                    "undotree",
+                },
+            },
+        })
+    end,
+}

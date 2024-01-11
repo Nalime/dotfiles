@@ -1,10 +1,14 @@
-local status_ok, null_ls = pcall(require, "null-ls")
-if not status_ok then
-    return
-end
+return {
+    -- none-ls: Formatters and linters
+    "nvimtools/none-ls.nvim",
 
-null_ls.setup({
-    sources = {
+    config = function()
+        local null_ls = require("null-ls")
 
-    },
-})
+        null_ls.setup({
+            sources = {
+
+            },
+        })
+    end,
+}

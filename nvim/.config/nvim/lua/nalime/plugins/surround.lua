@@ -1,8 +1,12 @@
-local status_ok, surround = pcall(require, "nvim-surround")
-if not status_ok then
-    return
-end
+return {
+    -- nvim-surround: Surround text objects with things (e.g. brackets)
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
 
-surround.setup({
+    config = function()
+        local surround = require("nvim-surround")
 
-})
+        surround.setup({})
+    end,
+}

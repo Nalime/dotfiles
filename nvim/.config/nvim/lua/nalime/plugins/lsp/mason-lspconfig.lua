@@ -1,15 +1,21 @@
-local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok then
-    return
-end
+return {
+    -- mason-lspconfig: Install LSP servers automatically via Mason
+    "williamboman/mason-lspconfig.nvim",
+    version = "*",
+    dependencies = "williamboman/mason.nvim",
 
-mason_lspconfig.setup({
-    ensure_installed = {
-        "bashls",
-        "clangd",
-        "cmake",
-        "lua_ls",
-        "pyright",
-    },
-    automatic_installation = true,
-})
+    config = function()
+        local mason_lspconfig = require("mason-lspconfig")
+
+        mason_lspconfig.setup({
+            ensure_installed = {
+                "bashls",
+                "clangd",
+                "cmake",
+                "lua_ls",
+                "pyright",
+            },
+            automatic_installation = true,
+        })
+    end,
+}

@@ -1,14 +1,20 @@
-local status_ok, nvimtree = pcall(require, "nvim-tree")
-if not status_ok then
-    return
-end
+return {
+    -- nvim-tree: Better file explorer
+    "kyazdani42/nvim-tree.lua",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
 
-vim.cmd [[ hi NvimTreeNormal guibg=NONE ctermbg=NONE ]]
+    config = function()
+        local nvimtree = require("nvim-tree")
 
-nvimtree.setup({
-    actions = {
-        open_file = {
-            quit_on_open = true,
-        },
-    },
-})
+        vim.cmd [[ hi NvimTreeNormal guibg=NONE ctermbg=NONE ]]
+
+        nvimtree.setup({
+            actions = {
+                open_file = {
+                    quit_on_open = true,
+                },
+            },
+        })
+    end,
+}

@@ -1,8 +1,16 @@
-local status_ok, mason_null_ls = pcall(require, "mason-null-ls")
-if not status_ok then
-    return
-end
+return {
+    -- mason-lspconfig: Install LSP servers automatically via Mason
+    "williamboman/mason-lspconfig.nvim",
+    version = "*",
+    dependencies = "williamboman/mason.nvim",
 
-mason_null_ls.setup({
+    enabled = false,
 
-})
+    config = function()
+        local mason_null_ls = require("mason-null-ls")
+
+        mason_null_ls.setup({
+
+        })
+    end,
+}

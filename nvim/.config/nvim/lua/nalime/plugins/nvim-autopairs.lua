@@ -1,8 +1,13 @@
-local status_ok, autopairs = pcall(require, "nvim-autopairs")
-if not status_ok then
-    return
-end
+return {
+    -- nvim-autopairs: Autopairs brackets, quotes, etc
+    -- Currently disabled since it gets in the way too much
+    -- It also messes up with undo history
+    "windwp/nvim-autopairs",
+    enabled = false,
 
-autopairs.setup({
+    config = function()
+        local autopairs = require("autopairs")
 
-})
+        autopairs.setup({})
+    end,
+}
