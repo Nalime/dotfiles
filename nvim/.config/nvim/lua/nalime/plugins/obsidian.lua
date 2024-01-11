@@ -8,6 +8,8 @@ return {
     config = function()
         local obsidian = require("obsidian")
 
+        vim.opt.conceallevel = 1
+
         obsidian.setup({
             dir = "~/A/obsidian-vault",
             notes_subdir = "00 Working",
@@ -29,6 +31,9 @@ return {
                 time_format = "%H:%M:%S",
             },
             open_app_foreground = true,
+            ui = {
+                enable = false
+            },
         })
     end,
 }
