@@ -118,6 +118,22 @@ PATH="$PATH":~/.local/bin
 oj_path=~/A/kyopro/tools/oj-utils
 [[ -f "$oj_path" ]] && . "$oj_path"
 
+# lfcd
+# https://github.com/gokcehan/lf/wiki/Tips#cd-to-current-directory-on-quit
+lf() {
+    export LF_CD_FILE=/var/tmp/.lfcd-$$
+    command lf "$@"
+    if [[ -s "$LF_CD_FILE" ]]; then
+        local DIR="$(realpath "$(cat "$LF_CD_FILE")")"
+        if [[ "$DIR" != "$PWD" ]]; then
+            echo "cd to $DIR"
+            cd "$DIR"
+        fi
+        rm "$LF_CD_FILE"
+    fi
+    unset LF_CD_FILE
+}
+
 #############################
 # Machine-specific settings #
 #############################
