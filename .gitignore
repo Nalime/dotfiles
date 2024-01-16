@@ -2,3 +2,4 @@ bash/.bash_specific
 kitty/.config/kitty/kitty-specific.conf
 linux_apps/.config/gtk-3.0/bookmarks
 nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/general/local.lua
