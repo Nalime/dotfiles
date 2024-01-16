@@ -10,7 +10,8 @@ require("nalime.general.mappings")
 require("nalime.general.options")
 require("nalime.general.lazy")
 
-if vim.fn.filereadable(vim.fn.stdpath("config") .. "/lua/nalime/local.lua") == 1 then
+local local_conf = vim.fn.stdpath("config") .. "/lua/nalime/general/local.lua"
+if vim.fn.filereadable(local_conf) == 1 then
     require("nalime.general.local")
 end
 
