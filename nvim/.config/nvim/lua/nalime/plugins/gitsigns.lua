@@ -7,7 +7,7 @@ return {
     config = function()
         local gitsigns = require("gitsigns")
 
-        require("scrollbar.handlers.gitsigns").setup()
+        -- require("scrollbar.handlers.gitsigns").setup()
 
         gitsigns.setup({})
     end,
