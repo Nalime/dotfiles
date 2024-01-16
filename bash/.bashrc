@@ -50,10 +50,14 @@ export VISUAL=nvim
 prompt_face() {
     exit_status=$?
 
-    res=''
+    local res=""
     res+="${esc_format["bold"]}"
-    if [[ $exit_status = 0 ]] ; then
-        res+="${esc_color["l_yellow"]}owo"
+    if [[ $exit_status = 0 ]]; then
+        if [[ $(whoami) == "root" ]]; then
+            res+="${esc_color["l_yellow"]}O_O"
+        else
+            res+="${esc_color["l_yellow"]}owo"
+        fi
     else
         res+="${esc_color["l_red"]}>_<${esc_format["reset"]}"
         res+="${esc_color["d_red"]} ($exit_status)"
@@ -63,11 +67,32 @@ prompt_face() {
     printf "$res"
 }
 
+name_color() {
+    local code=""
+    if [[ $(whoami) == "root" ]]; then
+        code=${esc_color["l_red"]}
+    else
+        code=${esc_color["l_green"]}
+    fi
+    printf "$code"
+}
+
+path_color() {
+    local code=""
+    if [[ $(whoami) == "root" ]]; then
+        code=${esc_color["d_red"]}
+    else
+        code=${esc_color["d_green"]}
+    fi
+    printf "$code"
+}
+
 PS1="\
-${esc_format["bold"]}${esc_color["l_green"]}\u${esc_format["reset"]}\
-:\$(prompt_face):\
-${esc_format["bold"]}${esc_color["l_blue"]}\W${esc_format["reset"]}\
-\\$ \
+${esc_format["bold"]}\$(name_color)\u${esc_format["reset"]}\
+@${esc_format["bold"]}\$(path_color)\h${esc_format["reset"]}\
+:\$(prompt_face)\
+:${esc_format["bold"]}${esc_color["l_blue"]}\w${esc_format["reset"]}\
+\n\\$ \
 "
 
 # Colorize command outputs
