@@ -1,7 +1,6 @@
 return {
-  -- guess-indent: ???
-  "nmac427/guess-indent.nvim",
-event = "VeryLazy",
+    -- guess-indent: Guess the indent width of the entry file.
+    "nmac427/guess-indent.nvim",
 
-  opts = {},
+    opts = {},
 }

@@ -23,5 +23,5 @@ return {
             enable = true,
             disable = {},
         },
-    }
+    },
 }

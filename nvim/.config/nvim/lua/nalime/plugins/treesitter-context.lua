@@ -4,5 +4,5 @@ return {
     event = "VeryLazy",
     enabled = false,
 
-    opt = {},
+    opts = {},
 }
