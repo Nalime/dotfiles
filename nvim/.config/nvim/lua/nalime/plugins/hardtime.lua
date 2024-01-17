@@ -10,7 +10,6 @@ return {
         disable_mouse = false,
 
         disabled_filetypes = {
-            "NvimTree",
             "alpha",
             "lazy",
             "mason",
