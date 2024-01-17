@@ -42,3 +42,6 @@ vim.opt.signcolumn = "yes"
 
 -- Hide vanilla mode display (in favor of lualine)
 vim.opt.showmode = false
+
+-- Cursorline (for plugins)
+vim.opt.cursorline = true
