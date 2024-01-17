@@ -3,8 +3,15 @@
 # Warn about nested instances
 &[ $LF_LEVEL -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
 
+# Show (relative) line numbers
+set number
+set relativenumber
+
 # Like Vim's scrolloff
 set scrolloff 5
+
+# Show hidden files (.foo_file)
+set hidden
 
 # Write current directory to a file specified by the invoking shell
 cmd quit-and-cd &{{
