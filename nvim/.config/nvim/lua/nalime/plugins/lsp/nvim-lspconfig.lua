@@ -1,6 +1,7 @@
 return {
     -- nvim-lspconfig: Configure LSP servers
     "neovim/nvim-lspconfig",
+    dependencies = "williamboman/mason-lspconfig.nvim",
     version = "*",
 
     config = function()

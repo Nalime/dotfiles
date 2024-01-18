@@ -2,7 +2,7 @@ return {
     -- mason-lspconfig: Install LSP servers automatically via Mason
     "williamboman/mason-lspconfig.nvim",
     version = "*",
-    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+    dependencies = "williamboman/mason.nvim",
     event = "VeryLazy",
 
     opts = {
