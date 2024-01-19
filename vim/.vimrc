@@ -44,3 +44,4 @@ set bdir=$HOME/.vim/backups
 " Undo
 " ul undolevels  udf undofile
 set ul=999999 udf
+set udir=$HOME/.vim/undo
