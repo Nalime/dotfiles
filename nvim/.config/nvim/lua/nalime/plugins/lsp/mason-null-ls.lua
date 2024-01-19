@@ -15,6 +15,9 @@ return {
             "selene", -- linter
             "stylua", -- formatter
 
+            -- Markdown
+            "marksman",
+
             -- Python
             "black", -- formatter
         },
