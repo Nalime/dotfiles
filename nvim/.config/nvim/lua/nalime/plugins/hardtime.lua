@@ -18,6 +18,7 @@ return {
             "query",
             "tsplayground",
             "undotree",
+            "DressingInput",
         },
     },
 }
