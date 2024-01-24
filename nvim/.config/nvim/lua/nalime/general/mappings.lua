@@ -94,6 +94,10 @@ add("n", "<Leader>o",
     "<Cmd>Telescope find_files<CR>",
     "Find files")
 
+add("n", "<Leader>r",
+    "<Cmd>Telescope oldfiles<CR>",
+    "Open recent files")
+
 add("n", "<Leader>f",
     "<Cmd>Telescope live_grep<CR>",
     "Live grep")
