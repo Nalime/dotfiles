@@ -152,6 +152,10 @@ add("n", "<Leader>ln",
     '<Cmd>lua vim.diagnostic.goto_next()<CR>',
     "Next diagnostic")
 
+add("n", "<Leader>lv",
+    '<Cmd>Navbuddy<CR>',
+    "Open code navigation")
+
 -- Gitsigns
 -- Prefix: g
 
