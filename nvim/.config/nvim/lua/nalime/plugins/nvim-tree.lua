@@ -6,6 +6,8 @@ return {
     event = "VeryLazy",
 
     opts = {
+        disable_netrw = false,
+        hijack_netrw = true,
         actions = {
             open_file = {
                 quit_on_open = true,
