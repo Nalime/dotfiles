@@ -1,4 +1,5 @@
 return {
+    -- nvim-navbuddy: Navigate code structure
     "SmiteshP/nvim-navbuddy",
     dependencies = {
         "neovim/nvim-lspconfig",

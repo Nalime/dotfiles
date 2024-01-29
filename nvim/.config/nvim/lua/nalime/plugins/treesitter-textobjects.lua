@@ -1,4 +1,5 @@
 return {
+    -- nvim-treesitter-textobjects: Do stuff on nodes
     "nvim-treesitter/nvim-treesitter-textobjects",
     dependencies = "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
