@@ -8,6 +8,7 @@ return {
         max_time = 500,
         max_count = 3,
         disable_mouse = false,
+        allow_different_key = true,
 
         disabled_filetypes = {
             "alpha",
