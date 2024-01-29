@@ -13,9 +13,13 @@ set scrolloff 5
 # Show hidden files (.foo_file)
 set hidden
 
+# Mappings
+map V invert-below
+
 # Write current directory to a file specified by the invoking shell
 cmd quit-and-cd &{{
     pwd > $LF_CD_FILE
     lf -remote "send $id quit"
 }}
 map Q quit-and-cd
+map
