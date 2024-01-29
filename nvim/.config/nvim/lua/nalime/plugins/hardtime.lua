@@ -9,6 +9,8 @@ return {
         disable_mouse = false,
         allow_different_key = true,
 
+        disabled_keys = {},
+
         disabled_filetypes = {
             "alpha",
             "lazy",
