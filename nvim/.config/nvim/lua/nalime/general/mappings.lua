@@ -102,24 +102,13 @@ add("n", "<Leader>f",
     "<Cmd>Telescope live_grep<CR>",
     "Live grep")
 
+add("n", "<Leader>b",
+    "<Cmd>Telescope buffers<CR>",
+    "Show open buffers")
+
 add("n", "<Leader>u",
     "<Cmd>UndotreeToggle<CR>",
     "Open undo tree")
-
--- Bufferlist traversal
--- Prefix: b
-
-add("n", "<Leader>bp",
-    "<Cmd>bprev<CR>",
-    "Previous buffer")
-
-add("n", "<Leader>bn",
-    "<Cmd>bnext<CR>",
-    "Next buffer")
-
-add("n", "<Leader>bq",
-    "<Cmd>Bdelete<CR>",
-    "Delete current buffer")
 
 -- LSP
 -- Prefix: l
