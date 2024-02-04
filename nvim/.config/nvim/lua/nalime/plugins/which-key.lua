@@ -22,9 +22,6 @@ return {
         })
 
         whichkey.register({
-            b = {
-                name = "Buffers traversal",
-            },
             g = {
                 name = "Gitsigns",
             },
@@ -33,6 +30,9 @@ return {
             },
             O = {
                 name = "Obsidian",
+            },
+            t = {
+                name = "Telescope",
             },
         }, { prefix = "<Leader>" })
     end,
