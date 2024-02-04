@@ -7,17 +7,9 @@ return {
         local whichkey = require("which-key")
 
         whichkey.setup({
-            triggers_nowait = {
-                -- marks
-                -- "`",
-                -- "'",
-                -- "g`",
-                -- "g'",
-                -- registers
-                -- '"',
-                -- "<c-r>",
-                -- spelling
-                -- "z=",
+            plugins = {
+                marks = false,
+                registers = false,
             },
         })
 
