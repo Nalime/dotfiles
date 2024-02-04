@@ -175,6 +175,34 @@ add("n", "<Leader>gn",
     "<Cmd>Gitsigns next_hunk<CR>",
     "Next Git hunk")
 
+-- Telescope
+-- Prefix: t
+
+add("n", "<Leader>td",
+    "<Cmd>Telescope diagnostics<CR>",
+    "Show diagnostics")
+
+add("n", "<Leader>tm",
+    "<Cmd>Telescope marks<CR>",
+    "Show marks")
+
+add("n", "<Leader>tj",
+    "<Cmd>Telescope jumplist<CR>",
+    "Show jumplist")
+
+add("n", '<Leader>t"',
+    "<Cmd>Telescope registers<CR>",
+    "Show registers")
+
+-- An alternative to q/ for viewing command history
+add("n", "<Leader>t:",
+    "<Cmd>Telescope command_history<CR>",
+    "Open command history")
+
+add("n", "<Leader>t/",
+    "<Cmd>Telescope search_history<CR>",
+    "Open search history")
+
 -- Obsidian
 -- Prefix: O
 
