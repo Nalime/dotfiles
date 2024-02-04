@@ -5,5 +5,23 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     event = "VeryLazy",
 
-    opts = {},
+    opts = {
+        defaults = {
+            borderchars = {
+                prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+                results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+                preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+            },
+            layout_strategy = "center",
+            layout_config = {
+                anchor = "S",
+                height = 0.7,
+                width = function(_, max_columns, _)
+                    return math.min(max_columns, 80)
+                end,
+            },
+            results_title = false,
+            sorting_strategy = "ascending",
+        },
+    },
 }
