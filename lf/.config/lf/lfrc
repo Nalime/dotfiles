@@ -15,6 +15,7 @@ set hidden
 
 # Mappings
 map V invert-below
+map g/ cd /
 
 # Write current directory to a file specified by the invoking shell
 cmd quit-and-cd &{{

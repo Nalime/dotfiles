@@ -26,8 +26,8 @@ sudo apt install stow
 
 ### Usage
 
-To apply the configuration files in `./foo_dir`, perform:
+To apply the configuration files in `./foo_dir` and `./bar_dir`, perform:
 
 ```bash
-stow -t ~ foo_dir
+stow -t ~ foo_dir bar_dir
 ```
