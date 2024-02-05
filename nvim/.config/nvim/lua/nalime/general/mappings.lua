@@ -79,6 +79,15 @@ add({"n", "v"}, "<Leader>Y", '"+Y', '[Quick] "+Y')
 add({"n", "v"}, "<Leader>d", '"+d', '[Quick] "+d')
 add({"n", "v"}, "<Leader>D", '"+D', '[Quick] "+D')
 
+-- Emacs-style (lol) command-line editing
+rm("c", "<C-b>")
+add_ns("c", "<C-a>", "<Home>",    "To start")
+-- add_ns("c", "<C-e>", "<End>",     "To end")
+add_ns("c", "<C-b>", "<Left>",    "Prev character")
+add_ns("c", "<C-f>", "<Right>",   "Next character")
+add_ns("c", "<A-b>", "<S-Left>",  "Prev word")
+add_ns("c", "<A-f>", "<S-Right>", "Next word")
+
 ---------------------
 -- Plugin mappings --
 ---------------------
