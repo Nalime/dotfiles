@@ -63,10 +63,13 @@ rm("c", "<Tab>")
 rm("c", "<S-Tab>")
 
 -- Make brace blocks
--- The mapping <S-CR> is for when the Shift key is released too late
+-- The shift mappings are for when Shift is released too late
 add("i", "{<CR>",   "{<CR>}<Esc>O",  "Make {} block")
 add("i", "{<S-CR>", "{<CR>}<Esc>O",  "Make {} block")
 add("i", "{;",      "{<CR>};<Esc>O", "Make {}; block")
+add("i", "{:",      "{<CR>};<Esc>O", "Make {}; block")
+add("i", "{,",      "{<CR>},<Esc>O", "Make {}, block")
+add("i", "{<",      "{<CR>},<Esc>O", "Make {}, block")
 
 -- Easier access to "+ register
 add({"n", "v"}, "<Leader>p", '"+p', '[Quick] "+p')
