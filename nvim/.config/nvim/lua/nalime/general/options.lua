@@ -1,7 +1,8 @@
 -- Numbers
+-- ruler is off in favor of lualine
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.ruler = true
+-- vim.opt.ruler = true
 
 -- Indentation
 vim.opt.tabstop = 4
@@ -18,9 +19,7 @@ vim.opt.colorcolumn = { 80 }
 -- Full-width window bars
 vim.opt.fillchars = "vert:█"
 
--- Showing:
--- - tabs:			
--- - trailing spaces:   
+-- Show tabs and trailing spaces
 vim.opt.list = true
 vim.opt.listchars = "tab:»·,trail:·"
 
