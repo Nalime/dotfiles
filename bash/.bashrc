@@ -7,13 +7,14 @@
 # Configuration files #
 #######################
 
-# Machine-specific settings
-# In .gitignore
-specific_path=~/.bash_specific
+# Machine-specific settings (in .gitignore)
+specific_path=.bash_specific
+# shellcheck source=.bash_specific
 [[ -f "$specific_path" ]] && . "$specific_path"
 
 # Define color escapes
-. ~/.bash_colors
+# shellcheck source=.bash_colors
+. .bash_colors
 
 #########################
 # Bash history settings #
@@ -116,6 +117,7 @@ PATH="$PATH":~/.local/bin
 
 # Kyopro tools
 oj_path=~/A/kyopro/tools/oj-utils
+# shellcheck source=A/kyopro/tools/oj-utils
 [[ -f "$oj_path" ]] && . "$oj_path"
 
 # lfcd
