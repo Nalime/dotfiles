@@ -8,7 +8,12 @@ return {
     opts = {
         disable_netrw = false,
         hijack_netrw = true,
+        respect_buf_cwd = true,
         actions = {
+            change_dir = {
+                enable = true,
+                global = true,
+            },
             open_file = {
                 quit_on_open = true,
             },
@@ -16,6 +21,9 @@ return {
         view = {
             number = true,
             relativenumber = true,
+        },
+        update_focused_file = {
+            enable = true,
         },
     },
 }
