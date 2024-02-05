@@ -6,7 +6,7 @@ return {
     event = "VeryLazy",
 
     opts = {
-        disable_netrw = false,
+        disable_netrw = true,
         hijack_netrw = true,
         respect_buf_cwd = true,
         actions = {
@@ -17,6 +17,9 @@ return {
             open_file = {
                 quit_on_open = true,
             },
+        },
+        filters = {
+            git_ignored = false,
         },
         view = {
             number = true,
