@@ -17,7 +17,7 @@ return {
                 anchor = "S",
                 height = 0.7,
                 width = function(_, max_columns, _)
-                    return math.min(max_columns, 80)
+                    return math.min(math.floor(max_columns * 0.95), 120)
                 end,
             },
             results_title = false,
