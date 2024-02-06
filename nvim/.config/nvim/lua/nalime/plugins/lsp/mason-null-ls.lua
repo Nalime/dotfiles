@@ -8,7 +8,7 @@ return {
     opts = {
         ensure_installed = {
             -- Bash
-            "shellcheck", -- linter
+            -- "shellcheck", -- linter
             "shfmt", -- formatter
 
             -- Lua
