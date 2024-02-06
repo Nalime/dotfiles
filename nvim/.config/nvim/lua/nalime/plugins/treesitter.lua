@@ -8,20 +8,10 @@ return {
 
     opts = {
         ensure_installed = "all",
-        -- ensure_installed = {
-        --     "c",
-        --     "cpp",
-        --     "lua",
-        --     "python",
-        -- },
         auto_install = false,
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = { "markdown" },
-        },
-        playground = {
-            enable = true,
-            disable = {},
         },
     },
 }
