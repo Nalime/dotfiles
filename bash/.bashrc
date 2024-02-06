@@ -48,53 +48,59 @@ export VISUAL=nvim
 # Fancy prompt
 # Additionally, on nonzero return, the value is shown and the face changes
 
-prompt_face() {
-    exit_status=$?
+get_ps1() {
+    local exit_status=$?
 
-    local res=""
-    res+="${esc_format["bold"]}"
-    if [[ $exit_status = 0 ]]; then
+    get_name() {
+        local middle=""
         if [[ $(whoami) == "root" ]]; then
-            res+="${esc_color["l_yellow"]}O_O"
+            middle="${esc_color["l_red"]}"
         else
-            res+="${esc_color["l_yellow"]}owo"
+            middle="${esc_color["l_green"]}"
         fi
-    else
-        res+="${esc_color["l_red"]}>_<${esc_format["reset"]}"
-        res+="${esc_color["d_red"]} ($exit_status)"
-    fi
-    res+="${esc_format["reset"]}"
+        echo -n "${esc_format["bold"]}${middle}\u${esc_format["reset"]}"
+    }
 
-    printf "$res"
+    get_path() {
+        local middle=""
+        if [[ $(whoami) == "root" ]]; then
+            middle="${esc_color["d_red"]}"
+        else
+            middle="${esc_color["d_green"]}"
+        fi
+        echo -n "${esc_format["bold"]}${middle}\h${esc_format["reset"]}"
+    }
+
+    get_face() {
+        local exit_status=$1
+
+        local middle=""
+        if [[ $exit_status = 0 ]]; then
+            if [[ $(whoami) == "root" ]]; then
+                middle="${esc_color["l_yellow"]}O_O"
+            else
+                middle="${esc_color["l_yellow"]}owo"
+            fi
+        else
+            middle="${esc_color["l_red"]}>_<${esc_format["reset"]}"
+            middle+="${esc_color["d_red"]} ($exit_status)"
+        fi
+        echo -n "${esc_format["bold"]}${middle}${esc_format["reset"]}"
+    }
+
+    local ans=""
+    ans+="$(get_name)@$(get_path):$(get_face $exit_status):"
+    ans+="${esc_format["bold"]}${esc_color["l_blue"]}\w${esc_format["reset"]}\n"
+    ans+="${esc_format["bold"]}\$${esc_format["reset"]} "
+
+    unset get_name
+    unset get_path
+    unset get_face
+
+    echo -n "$ans"
 }
 
-name_color() {
-    local code=""
-    if [[ $(whoami) == "root" ]]; then
-        code=${esc_color["l_red"]}
-    else
-        code=${esc_color["l_green"]}
-    fi
-    printf "$code"
-}
-
-path_color() {
-    local code=""
-    if [[ $(whoami) == "root" ]]; then
-        code=${esc_color["d_red"]}
-    else
-        code=${esc_color["d_green"]}
-    fi
-    printf "$code"
-}
-
-PS1="\
-${esc_format["bold"]}\$(name_color)\u${esc_format["reset"]}\
-@${esc_format["bold"]}\$(path_color)\h${esc_format["reset"]}\
-:\$(prompt_face)\
-:${esc_format["bold"]}${esc_color["l_blue"]}\w${esc_format["reset"]}\
-\n\\$ \
-"
+PROMPT_COMMAND='PS1=$(get_ps1)'
 
 # Colorize command outputs
 [[ $(uname -s) == "FreeBSD" ]] || alias diff='diff --color=auto'
