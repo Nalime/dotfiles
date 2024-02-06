@@ -61,7 +61,7 @@ get_ps1() {
         echo -n "${esc_format["bold"]}${middle}\u${esc_format["reset"]}"
     }
 
-    get_path() {
+    get_host() {
         local middle=""
         if [[ $(whoami) == "root" ]]; then
             middle="${esc_color["d_red"]}"
@@ -88,14 +88,25 @@ get_ps1() {
         echo -n "${esc_format["bold"]}${middle}${esc_format["reset"]}"
     }
 
+    get_path() {
+        local middle="${esc_color["l_blue"]}\w"
+        echo -n "${esc_format["bold"]}${middle}${esc_format["reset"]}"
+    }
+
+    get_symbol() {
+        local middle="\$"
+        echo -n "${esc_format["bold"]}${middle}${esc_format["reset"]}"
+    }
+
     local ans=""
-    ans+="$(get_name)@$(get_path):$(get_face $exit_status):"
-    ans+="${esc_format["bold"]}${esc_color["l_blue"]}\w${esc_format["reset"]}\n"
-    ans+="${esc_format["bold"]}\$${esc_format["reset"]} "
+    ans+="$(get_name)@$(get_host):$(get_face $exit_status):"
+    ans+="$(get_path)\n$(get_symbol) "
 
     unset get_name
-    unset get_path
+    unset get_host
     unset get_face
+    unset get_path
+    unset get_symbol
 
     echo -n "$ans"
 }
