@@ -8,13 +8,13 @@
 #######################
 
 # Machine-specific settings (in .gitignore)
-specific_path=.bash_specific
+specific_path=~/.bash_specific
 # shellcheck source=.bash_specific
 [[ -f "$specific_path" ]] && . "$specific_path"
 
 # Define color escapes
 # shellcheck source=.bash_colors
-. .bash_colors
+. ~/.bash_colors
 
 #########################
 # Bash history settings #
