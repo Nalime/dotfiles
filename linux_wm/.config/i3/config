@@ -222,12 +222,12 @@ client.focused          $bg-brig $bg-brig $tx-ligh $bg-indi
 client.urgent           $bg-brig $bg-brig $tx-ligh $bg-indi
 
 ### Window Borders ###
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 
-gaps inner 10
+gaps inner 5
 
 ### polybar ###
-gaps top 34
+gaps top 30
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ### picom ###
