@@ -79,7 +79,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+g focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -131,7 +131,10 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Return exec kitty
 
 # Start rofi (a program launcher)
-bindsym $mod+semicolon exec --no-startup-id ~/.config/rofi/bin/launcher_colorful
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+
+# Start rofi (a program launcher)
+bindsym $mod+space exec --no-startup-id rofi -show drun
 
 # Use maim to screenshot.
 bindsym Print exec maim |\
