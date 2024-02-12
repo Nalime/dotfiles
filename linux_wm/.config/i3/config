@@ -208,18 +208,18 @@ focus_follows_mouse no
 
 ### Color Palette ###
 set $bg-dark #446688
-set $bg-medi #4488cc
 set $bg-brig #66ccff
 set $bg-indi #88ffff
+set $bg-aler #ff4444
 set $tx-dark #888888
 set $tx-ligh #cccccc
 
 ### Window Colors ###
 #                       border   bground  text     indicat
 client.unfocused        $bg-dark $bg-dark $tx-dark $bg-indi
-client.focused_inactive $bg-medi $bg-medi $tx-dark $bg-indi
+client.focused_inactive $bg-dark $bg-dark $tx-dark $bg-indi
 client.focused          $bg-brig $bg-brig $tx-ligh $bg-indi
-client.urgent           $bg-brig $bg-brig $tx-ligh $bg-indi
+client.urgent           $bg-aler $bg-aler $tx-ligh $bg-indi
 
 ### Window Borders ###
 for_window [class=".*"] border pixel 2
@@ -232,3 +232,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ### picom ###
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
+
+### Desktop Wallpaper ###
+exec_always --no-startup-id feh \
+                --bg-fill $HOME/A/wallpaper.png
