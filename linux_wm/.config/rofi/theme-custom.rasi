@@ -4,9 +4,9 @@
  */
 
 * {
-    theme-dark-color:            rgba(68, 102, 136, 100%);
-    theme-light-color:           rgba(102, 204, 255, 100%);
-    theme-urgent-color:          rgba(255, 68, 68, 100%);
+    theme-dark-color:            rgba(136, 136, 136, 100%);
+    theme-light-color:           rgba(238, 238, 238, 100%);
+    theme-urgent-color:          rgba(238, 68, 68, 100%);
 
     foreground:                  rgba(255, 255, 255, 100%);
     background:                  rgba(0, 0, 0, 80%);

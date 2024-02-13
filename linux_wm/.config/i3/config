@@ -193,12 +193,12 @@ focus_follows_mouse no
 ########## RICING ##########
 
 ### Color Palette ###
-set $bg-dark #446688
-set $bg-brig #66ccff
-set $bg-indi #88ffff
-set $bg-aler #ff4444
-set $tx-dark #888888
-set $tx-ligh #cccccc
+set $bg-dark #888888
+set $bg-brig #eeeeee
+set $bg-indi #cccccc
+set $bg-aler #ee4444
+set $tx-dark #aaaaaa
+set $tx-ligh #ffffff
 
 ### Window Colors ###
 #                       border   bground  text     indicat
