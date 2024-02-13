@@ -1,0 +1,61 @@
+configuration {
+    modes: "";
+    font: "Inter Medium 16";
+    show-icons: true;
+    display-window: "Windows";
+    display-drun: "Applications";
+    kb-clear-line: "";
+    kb-move-front: "Control+a";
+    kb-move-end: "Control+e";
+    kb-move-word-back: "Alt+b,Control+Left";
+    kb-move-word-forward: "Alt+f,Control+Right";
+    kb-move-char-back: "Control+b,Left";
+    kb-move-char-forward: "Control+f,Right";
+    kb-remove-word-back: "Control+w,Control+BackSpace";
+    kb-remove-word-forward: "Alt+d,Control+Delete";
+    kb-remove-char-back: "Control+h,BackSpace";
+    kb-remove-char-forward: "Control+d,Delete";
+    kb-remove-to-eol: "Control+k";
+    kb-remove-to-sol: "Control+u";
+    kb-custom-1: "";
+    kb-custom-2: "";
+    kb-custom-3: "";
+    kb-custom-4: "";
+    kb-custom-5: "";
+    kb-custom-6: "";
+    kb-custom-7: "";
+    kb-custom-8: "";
+    kb-custom-9: "";
+    kb-custom-10: "";
+    kb-custom-11: "";
+    kb-custom-12: "";
+    kb-custom-13: "";
+    kb-custom-14: "";
+    kb-custom-15: "";
+    kb-custom-16: "";
+    kb-custom-17: "";
+    kb-custom-18: "";
+    kb-custom-19: "";
+    kb-select-1: "";
+    kb-select-2: "";
+    kb-select-3: "";
+    kb-select-4: "";
+    kb-select-5: "";
+    kb-select-6: "";
+    kb-select-7: "";
+    kb-select-8: "";
+    kb-select-9: "";
+    kb-select-10: "";
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+
+@theme "./theme-custom.rasi"
+
+// vim: ft=scss
