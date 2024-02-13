@@ -1,3 +1,16 @@
 #!/bin/sh
 
+# Use below style for Qt5 apps
 export QT_STYLE_OVERRIDE=adwaita-dark
+
+# Make Qt5 apps use GTK configurations
+export XDG_CURRENT_DESKTOP=GNOME
+
+# Disable mouse acceleration
+xinput --set-prop 11 'libinput Accel Profile Enabled' 0, 1, 0
+
+# Key repeat delay & rate
+xset r rate 350 32
+
+# Trigger screensaver after 10 minutes of inactivity
+xset s 600
