@@ -20,7 +20,52 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- \
+        i3lock -b -e -n \
+        -i ~/'A/wallpaper.png' -F \
+        \
+        --clock \
+        --indicator \
+        --radius 250 \
+        --ring-width 10 \
+        \
+        --inside-color=000000cc \
+        --ring-color=00cc00cc \
+        --insidever-color=000000cc \
+        --ringver-color=4488cccc \
+        --insidewrong-color=880000cc \
+        --ringwrong-color=ff0000cc \
+        \
+        --line-color=ffffff \
+        --keyhl-color=44ff44 \
+        --bshl-color=ff4444 \
+        --separator-color=00000000 \
+        \
+        --verif-color=ffffff \
+        --wrong-color=ffffff \
+        --modif-color=ffffff \
+        --layout-color=ffffff \
+        --time-color=ffffff \
+        --date-color=ffffff \
+        \
+        --date-str="%Y-%m-%d (%a.)" \
+        --verif-text="._."\
+        --wrong-text="x_x"\
+        --noinput-text="NO INPUT"\
+        \
+        --time-font="Roboto Mono" \
+        --date-font="Roboto Mono" \
+        --layout-font="Roboto Mono" \
+        --verif-font="Roboto Mono" \
+        --wrong-font="Roboto Mono" \
+        \
+        --time-size=80 \
+        --date-size=40 \
+        --layout-size=80 \
+        --verif-size=80 \
+        --wrong-size=80 \
+        \
+        --date-pos="tx:ty+50" \
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -116,6 +161,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ### External Utilities ###
+
+# Lockscreen
+bindsym $mod+Mod1+Q exec --no-startup-id loginctl lock-session
 
 # Start kitty (a terminal emulator)
 bindsym $mod+Return exec kitty
