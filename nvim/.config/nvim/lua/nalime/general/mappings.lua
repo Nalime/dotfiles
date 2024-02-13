@@ -40,12 +40,13 @@ end
 
 local leader_key = " "
 
+-- Disable vanilla <Space>
+rm("", leader_key)
+rm("", leader_key .. leader_key)
+
 -- Assign space as leader key
 vim.g.mapleader = leader_key
 vim.g.maplocalleader = leader_key
-
--- Disable vanilla <Space>
-rm("", leader_key)
 
 ----------------------
 -- Vanilla mappings --
