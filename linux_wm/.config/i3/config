@@ -27,6 +27,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 ########## KEYBINDS ##########
+# Note:
+# - Alt: Mod1
+# - Super: Mod4
 
 # Set Super as modifier key
 set $mod Mod4
@@ -114,10 +117,10 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Return exec kitty
 
 # Start rofi's window switcher
-bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+Tab exec rofi -show window
 
 # Start rofi's application launcher
-bindsym $mod+space exec --no-startup-id rofi -show drun
+bindsym $mod+space exec rofi -show drun
 
 # Use maim to screenshot.
 bindsym Print exec --no-startup-id maim |\
@@ -125,24 +128,24 @@ bindsym Print exec --no-startup-id maim |\
         xclip -sel clip -t image/png
 
 # Use xbacklight to adjust brightness.
-bindsym XF86MonBrightnessUp   exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl \
-            set-sink-volume @DEFAULT_SINK@ +5%
+        set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl \
-            set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl \
-            set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl \
-            set-source-mute @DEFAULT_SOURCE@ toggle
+        set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl \
+        set-sink-mute   @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute     exec --no-startup-id pactl \
+        set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use playerctl to manage audio playback.
-bindsym XF86AudioPlay  exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext  exec playerctl next
-bindsym XF86AudioPrev  exec playerctl previous
+bindsym XF86AudioPlay  exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext  exec --no-startup-id playerctl next
+bindsym XF86AudioPrev  exec --no-startup-id playerctl previous
 
 ########## WORKSPACES ##########
 
@@ -222,3 +225,5 @@ exec_always --no-startup-id ~/'.config/picom/launch.sh'
 ### Desktop Wallpaper ###
 exec_always --no-startup-id feh \
         --bg-fill ~/'A/wallpaper.png'
+
+# vim: sw=4
