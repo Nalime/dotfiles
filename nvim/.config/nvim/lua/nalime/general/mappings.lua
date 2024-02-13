@@ -176,6 +176,18 @@ add("n", "<Leader>gn",
     "<Cmd>Gitsigns next_hunk<CR>",
     "Next Git hunk")
 
+add("n", "<Leader>gs",
+    "<Cmd>Gitsigns stage_hunk<CR>",
+    "Stage current hunk")
+
+add("n", "<Leader>gu",
+    "<Cmd>Gitsigns undo_stage_hunk<CR>",
+    "Undo last staged hunk")
+
+add("n", "<Leader>gr",
+    "<Cmd>Gitsigns reset_hunk<CR>",
+    "Reset current hunk")
+
 -- Telescope
 -- Prefix: t
 
