@@ -194,8 +194,8 @@ focus_follows_mouse no
 
 ### Color Palette ###
 set $bg-dark #888888
-set $bg-brig #eeeeee
-set $bg-indi #cccccc
+set $bg-brig #dddddd
+set $bg-indi #aaaaaa
 set $bg-aler #ee4444
 set $tx-dark #aaaaaa
 set $tx-ligh #ffffff
@@ -208,7 +208,7 @@ client.focused          $bg-brig $bg-brig $tx-ligh $bg-indi
 client.urgent           $bg-aler $bg-aler $tx-ligh $bg-indi
 
 ### Window Borders ###
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 
 gaps inner 5
 
