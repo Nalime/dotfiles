@@ -120,9 +120,9 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym $mod+space exec --no-startup-id rofi -show drun
 
 # Use maim to screenshot.
-bindsym Print exec maim |\
-            tee "$HOME/Pictures/$(date +%FT%T.%N)" |\
-            xclip -sel clip -t image/png
+bindsym Print exec --no-startup-id maim |\
+        tee ~/"Pictures/$(date +%FT%T.%N)" |\
+        xclip -sel clip -t image/png
 
 # Use xbacklight to adjust brightness.
 bindsym XF86MonBrightnessUp   exec light -A 5
@@ -214,11 +214,11 @@ gaps inner 5
 
 ### polybar ###
 gaps top 30
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id ~/'.config/polybar/launch.sh'
 
 ### picom ###
-exec_always --no-startup-id $HOME/.config/picom/launch.sh
+exec_always --no-startup-id ~/'.config/picom/launch.sh'
 
 ### Desktop Wallpaper ###
 exec_always --no-startup-id feh \
-                --bg-fill $HOME/A/wallpaper.png
+        --bg-fill ~/'A/wallpaper.png'
