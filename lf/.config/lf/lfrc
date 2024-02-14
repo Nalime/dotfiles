@@ -34,4 +34,3 @@ cmd quit-and-cd &{{
     lf -remote "send $id quit"
 }}
 map Q quit-and-cd
-map
