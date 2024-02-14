@@ -17,6 +17,10 @@ set promptfmt "
 # Show icons according to file type
 set icons
 
+# Show image previews (via kitty)
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+
 # Show (relative) line numbers
 set number
 set relativenumber
