@@ -1,7 +1,8 @@
-#!/usr/bin/env bash
-
 # Warn about nested instances
-&[ $LF_LEVEL -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
+&{{
+    [[ $LF_LEVEL -eq 1 ]] ||\
+        lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
+}}
 
 # Like bash's PS1
 set promptfmt "
@@ -14,8 +15,14 @@ set promptfmt "
 \033[0m\033[1m%f\033[0m
 "
 
+# Set datetime format
+set timefmt "(Mon.) 2006-01-02 15:04:05"
+
 # Show icons according to file type
 set icons
+
+# Attributes preserved when copying files
+set preserve "mode:timestamps"
 
 # Show image previews (via kitty)
 set previewer ~/.config/lf/lf_kitty_preview
@@ -25,15 +32,37 @@ set cleaner ~/.config/lf/lf_kitty_clean
 set number
 set relativenumber
 
+# Color line numbers dark gray
+set numberfmt "\033[90m"
+
 # Like Vim's scrolloff
 set scrolloff 5
+
+# Enable mouse input
+set mouse
 
 # Show hidden files (.foo_file)
 set hidden
 
+# Set ratios depending on terminal width
+cmd on-redraw %{{
+    if [[ $lf_width -le 120 ]]; then
+        lf -remote "send $id set ratios 2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3"
+    fi
+}}
+# on-redraw is not in r31
+on-redraw
+
+# Trash command
+cmd trash %IFS=$'\t\n'; trash $fx
+
 # Mappings
 map V invert-below
 map g/ cd /
+map x trash
+map X delete
 
 # Write current directory to a file specified by the invoking shell
 cmd quit-and-cd &{{
@@ -41,3 +70,5 @@ cmd quit-and-cd &{{
     lf -remote "send $id quit"
 }}
 map Q quit-and-cd
+
+# vim: ft=sh
