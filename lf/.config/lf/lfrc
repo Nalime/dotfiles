@@ -14,6 +14,9 @@ set promptfmt "
 \033[0m\033[1m%f\033[0m
 "
 
+# Show icons according to file type
+set icons
+
 # Show (relative) line numbers
 set number
 set relativenumber
