@@ -7,5 +7,7 @@
 # For setting DPI
 xrdb -merge ~/.Xresources
 
+export GTK_THEME=Adwaita-dark
+
 # Run i3wm
 i3
