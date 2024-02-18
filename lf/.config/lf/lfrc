@@ -19,7 +19,7 @@ set promptfmt "
 set timefmt "(Mon.) 2006-01-02 15:04:05"
 
 # Show icons according to file type
-set icons
+# set icons
 
 # Attributes preserved when copying files
 set preserve "mode:timestamps"
