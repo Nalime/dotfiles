@@ -40,6 +40,9 @@ export HISTCONTROL=$HISTCONTROL:ignorespace
 # General settings #
 ####################
 
+# Disable output pausing via Ctrl+S (and enable forward incremental search)
+stty -ixon
+
 # Editors
 
 export EDITOR=vim
