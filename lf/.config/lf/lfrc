@@ -1,8 +1,5 @@
-# Warn about nested instances
-&{{
-    [[ $LF_LEVEL -eq 1 ]] ||\
-        lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
-}}
+# Set lf shell to bash
+set shell bash
 
 # Like bash's PS1
 set promptfmt "
@@ -70,5 +67,12 @@ cmd quit-and-cd &{{
     lf -remote "send $id quit"
 }}
 map Q quit-and-cd
+
+# Warn about nested instances
+&{{
+    sleep 0.2
+    [[ $LF_LEVEL -eq 1 ]] ||\
+        lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
+}}
 
 # vim: ft=sh
