@@ -124,7 +124,10 @@ alias grep='grep --color=auto'
 # Colorize and format less
 # https://wiki.archlinux.org/index.php/Color_output_in_console#man
 
-[[ "$(grep '^ID=' /etc/os-release)" == 'ID=arch' ]] && export MANROFFOPT="-P -c"
+if [[ "$(uname)" == 'Linux'
+    && "$(grep '^ID=' /etc/os-release)" == 'ID=arch' ]]; then
+    export MANROFFOPT="-P -c"
+fi
 
 # bold/blink
 export LESS_TERMCAP_md=${format["bold"]}${color["l_blue"]}
