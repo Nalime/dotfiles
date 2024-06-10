@@ -141,9 +141,9 @@ export LESS_TERMCAP_ue=${format["reset"]}
 PATH="$PATH":~/.local/bin
 
 # Kyopro tools
-oj_path=~/A/kyopro/tools/oj-utils
-# shellcheck source=A/kyopro/tools/oj-utils
-[[ -f "$oj_path" ]] && . "$oj_path"
+kpr_path=~/A/kyopro/tools/main
+# shellcheck source=A/kyopro/tools/main
+[[ -f "$kpr_path" ]] && . "$kpr_path"
 
 # lfcd
 # https://github.com/gokcehan/lf/wiki/Tips#cd-to-current-directory-on-quit
