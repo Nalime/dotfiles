@@ -1,6 +1,10 @@
 return {
     -- which-key: Key combination hints
     "folke/which-key.nvim",
+    dependencies = {
+        "echasnovski/mini.icons",
+        "nvim-tree/nvim-web-devicons",
+    },
     event = "VeryLazy",
 
     config = function()
