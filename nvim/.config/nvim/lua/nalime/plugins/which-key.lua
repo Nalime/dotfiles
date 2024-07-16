@@ -17,19 +17,11 @@ return {
             },
         })
 
-        whichkey.register({
-            g = {
-                name = "Gitsigns",
-            },
-            l = {
-                name = "LSP",
-            },
-            O = {
-                name = "Obsidian",
-            },
-            t = {
-                name = "Telescope",
-            },
-        }, { prefix = "<Leader>" })
+        whichkey.add({
+            { "<Leader>g", group = "Gitsigns" },
+            { "<Leader>l", group = "LSP" },
+            { "<Leader>O", group = "Obsidian" },
+            { "<Leader>t", group = "Telescope" },
+        })
     end,
 }
