@@ -4,7 +4,7 @@ return {
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 
     opts = {
-        max_time = 1000,
+        max_time = 100,
         max_count = 2,
         disable_mouse = false,
         allow_different_key = true,
