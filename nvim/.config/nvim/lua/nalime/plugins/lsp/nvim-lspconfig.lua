@@ -14,6 +14,7 @@ return {
         lspconfig["bashls"].setup({})
         lspconfig["clangd"].setup({})
         lspconfig["cmake"].setup({})
+        lspconfig["ltex"].setup({})
 
         lspconfig["lua_ls"].setup({
             settings = {

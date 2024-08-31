@@ -10,6 +10,7 @@ return {
             "bashls",
             "clangd",
             "cmake",
+            "ltex",
             "lua_ls",
             "marksman",
             "pyright",
