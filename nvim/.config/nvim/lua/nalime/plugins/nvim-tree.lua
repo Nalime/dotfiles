@@ -28,5 +28,15 @@ return {
         update_focused_file = {
             enable = true,
         },
+        renderer = {
+            icons = {
+                glyphs = {
+                    folder = {
+                        empty = "󰉖",
+                        empty_open = "󰷏",
+                    },
+                },
+            },
+        },
     },
 }
