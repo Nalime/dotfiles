@@ -5,7 +5,7 @@ return {
         "echasnovski/mini.icons",
         "nvim-tree/nvim-web-devicons",
     },
-    event = "VeryLazy",
+    event = "BufReadPost",
 
     config = function()
         local whichkey = require("which-key")

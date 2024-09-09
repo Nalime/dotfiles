@@ -1,7 +1,7 @@
 return {
     -- marks: Marks QoL; show marks on the SignColumn
     "chentoast/marks.nvim",
-    event = "VeryLazy",
+    event = "BufReadPost",
 
     config = function()
         local marks = require("marks")

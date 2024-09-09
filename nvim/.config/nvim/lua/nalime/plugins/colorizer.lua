@@ -1,6 +1,7 @@
 return {
     "NvChad/nvim-colorizer.lua",
     main = "colorizer",
+    event = "BufReadPost",
 
     opts = {
         user_default_options = {

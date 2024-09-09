@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = "williamboman/mason-lspconfig.nvim",
     version = "*",
+    event = "BufReadPost",
 
     config = function()
         local lspconfig = require("lspconfig")
