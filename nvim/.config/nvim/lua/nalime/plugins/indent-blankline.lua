@@ -3,7 +3,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     version = "*",
-    event = "BufReadPost",
+    event = { "BufReadPost", "VimEnter" },
 
     opts = {
         exclude = {

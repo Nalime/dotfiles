@@ -1,7 +1,7 @@
 return {
     -- guess-indent: Guess the indent width of the entry file.
     "nmac427/guess-indent.nvim",
-    event = "BufReadPost",
+    event = { "BufReadPost", "VimEnter" },
 
     opts = {},
 }

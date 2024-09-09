@@ -5,7 +5,7 @@ return {
         "echasnovski/mini.icons",
         "nvim-tree/nvim-web-devicons",
     },
-    event = "BufReadPost",
+    event = { "BufReadPost", "VimEnter" },
 
     config = function()
         local whichkey = require("which-key")

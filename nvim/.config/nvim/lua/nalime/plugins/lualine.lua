@@ -7,7 +7,7 @@ return {
     -- A fancy replacement of (Neo)Vim's vanilla status bar
     "nvim-lualine/lualine.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
-    event = "BufReadPost",
+    event = { "BufReadPost", "VimEnter" },
 
     opts = {
         options = {
