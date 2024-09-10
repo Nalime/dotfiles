@@ -5,8 +5,8 @@ return {
     event = { "BufReadPost", "VimEnter" },
 
     opts = {
-        max_time = 100,
-        max_count = 2,
+        max_time = 1,
+        max_count = 100,
         disable_mouse = false,
         allow_different_key = true,
 
