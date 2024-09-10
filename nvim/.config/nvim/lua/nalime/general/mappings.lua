@@ -225,7 +225,7 @@ add("n", "<Leader>Oa",
     "Open in Obsidian")
 
 add_ns("n", "<Leader>On",
-    "<Cmd>ObsidianNew ",
+    ":ObsidianNew ",
     "Create Obsidian note named ...")
 
 add("n", "<Leader>Oo",
@@ -245,11 +245,11 @@ add("n", "<Leader>Ob",
     "Show backlinks")
 
 add_ns("n", "<Leader>Ol",
-    "<Cmd>'<,'>ObsidianLink ",
+    ":'<,'>ObsidianLink ",
     "Link to ... at selection")
 
 add_ns("v", "<Leader>Ol",
-    "<Cmd>ObsidianLink ",
+    ":ObsidianLink ",
     "Link to ... at selection")
 
 add("n", "<Leader>Od",
