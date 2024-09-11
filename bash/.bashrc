@@ -161,6 +161,9 @@ lf() {
     unset LF_CD_FILE
 }
 
+# zoxide
+eval "$(zoxide init bash)"
+
 #############################
 # Machine-specific settings #
 #############################

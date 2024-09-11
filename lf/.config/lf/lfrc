@@ -52,8 +52,26 @@ cmd on-redraw %{{
 # on-redraw is not in r31
 on-redraw
 
-# Trash command
+# trash-cli
 cmd trash %IFS=$'\t\n'; trash $fx
+
+# zoxide
+
+cmd z %{{
+    result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd on-cd &{{
+    zoxide add "$PWD"
+}}
+
+# end zoxide
 
 # Mappings
 map V invert-below
