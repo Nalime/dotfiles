@@ -164,6 +164,10 @@ lf() {
 # zoxide
 eval "$(zoxide init bash)"
 
+# eza
+alias eza='eza --git --time-style=long-iso'
+alias e=eza
+
 #############################
 # Machine-specific settings #
 #############################
