@@ -161,6 +161,16 @@ lf() {
     unset LF_CD_FILE
 }
 
+# fzf
+
+# Preview mode
+alias fzfp='fzf --preview '\''bat --style=numbers --color=always {}'\'
+
+# Set up key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
+# end fzf
+
 # zoxide
 eval "$(zoxide init bash)"
 
