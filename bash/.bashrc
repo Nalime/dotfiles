@@ -175,7 +175,7 @@ eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
 
 # eza
-alias eza='eza --git --time-style=long-iso'
+alias eza='eza --git '\''--time-style=+%Y-%m-%d %H:%M:%S'\'
 alias e=eza
 
 #############################
