@@ -1,0 +1,23 @@
+# https://dbrgn.github.io/tealdeer/config.html
+
+[updates]
+auto_update = true
+auto_update_interval_hours = 24
+
+[style.description]
+foreground = { ansi = 7 } # Light gray
+
+[style.command_name]
+foreground = { ansi = 12 } # Light blue
+bold = true
+
+[style.example_text]
+foreground = { ansi = 15 } # White
+
+[style.example_code]
+foreground = { ansi = 12 } # Light blue
+
+[style.example_variable]
+foreground = { ansi = 7 } # Light gray
+italic = true
+underline = true
