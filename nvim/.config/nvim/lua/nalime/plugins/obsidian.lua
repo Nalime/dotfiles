@@ -9,9 +9,9 @@ return {
         dir = "~/A/obsidian-vault",
         notes_subdir = "00 Working",
         daily_notes = {
-            folder = "02 Daily",
+            folder = "02 Periodic",
             date_format = "%Y-%m-%d",
-            template = "10 Technical/Templates/Daily Template",
+            template = "10 Technical/Templates/Daily note template",
         },
         note_id_func = function(title)
             if title ~= nil then
