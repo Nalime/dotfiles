@@ -36,7 +36,8 @@ case "$filetype" in
         bat_with_opts "$file"
         ;;
     *)
-        echo "Preview unsupported:"
-        file -b "$file"
+        echo "- Preview unsupported for mime-type: $filetype"
+        echo "- Information:"
+        file -b "$file" | fmt -w "${w}"
         ;;
 esac
