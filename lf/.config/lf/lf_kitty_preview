@@ -29,7 +29,7 @@ case "$filetype" in
             > /dev/tty
         exit 1
         ;;
-    application/json) <(jq < "$file")
+    application/json)
         jq < "$file" | bat_with_opts --language json
         ;;
     text/*)
