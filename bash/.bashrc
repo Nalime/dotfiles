@@ -164,7 +164,16 @@ lf() {
 # fzf
 
 # Preview mode
-alias fzfp='fzf --preview '\''bat --style=numbers --color=always {}'\'
+fzfp() {
+    # shellcheck disable=SC2016
+    local previewer=(
+        'bat'
+        '--style=numbers'
+        '--color=always'
+        '--terminal-width="$FZF_PREVIEW_COLUMNS" {}'
+    )
+    fzf --preview="${previewer[*]}"
+}
 
 # Set up key bindings and fuzzy completion
 eval "$(fzf --bash)"

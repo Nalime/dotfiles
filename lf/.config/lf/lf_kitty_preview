@@ -25,6 +25,7 @@ case "$filetype" in
         bat \
             --style=numbers \
             --color=always \
+            --terminal-width="${w}" \
             "$file"
         ;;
     *)
