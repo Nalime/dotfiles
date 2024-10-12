@@ -8,6 +8,14 @@ y=$5
 
 filetype="$( file -Lb --mime-type "$file")"
 
+bat_with_opts() {
+    bat \
+        --style=numbers \
+        --color=always \
+        --terminal-width="${w}" \
+        "$@"
+}
+
 case "$filetype" in
     image/*)
         kitty \
@@ -21,12 +29,11 @@ case "$filetype" in
             > /dev/tty
         exit 1
         ;;
+    application/json) <(jq < "$file")
+        jq < "$file" | bat_with_opts --language json
+        ;;
     text/*)
-        bat \
-            --style=numbers \
-            --color=always \
-            --terminal-width="${w}" \
-            "$file"
+        bat_with_opts "$file"
         ;;
     *)
         echo "Preview unsupported:"
