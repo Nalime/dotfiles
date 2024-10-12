@@ -8,7 +8,27 @@ y=$5
 
 filetype="$( file -Lb --mime-type "$file")"
 
-if [[ "$filetype" =~ ^image ]]; then
-    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
-    exit 1
-fi
+case "$filetype" in
+    image/*)
+        kitty \
+            +kitten icat \
+            --silent \
+            --stdin no \
+            --transfer-mode file \
+            --place "${w}x${h}@${x}x${y}" \
+            "$file" \
+            < /dev/null \
+            > /dev/tty
+        exit 1
+        ;;
+    text/*)
+        bat \
+            --style=numbers \
+            --color=always \
+            "$file"
+        ;;
+    *)
+        echo "Preview unsupported:"
+        file -b "$file"
+        ;;
+esac
