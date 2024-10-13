@@ -1,4 +1,5 @@
-# https://dbrgn.github.io/tealdeer/config.html
+# See below for manual:
+# https://tealdeer-rs.github.io/tealdeer/config.html
 
 [updates]
 auto_update = true
