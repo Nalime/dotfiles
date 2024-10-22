@@ -24,6 +24,7 @@ return {
         view = {
             number = true,
             relativenumber = true,
+            width = 40,
         },
         update_focused_file = {
             enable = true,
