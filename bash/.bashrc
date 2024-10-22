@@ -209,3 +209,6 @@ alias e=eza
 # Gigantic stack size; pretty much necessary for kyopro
 # Best to set according to actual memory limits
 # ulimit -Ss $((2 * 1024 * 1024))
+
+# Start keychain (change xxx)
+# eval "$(keychain --eval --agents ssh id_xxx)"
