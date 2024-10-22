@@ -13,6 +13,14 @@ return {
     opts = {
         window = {
             size = "90%",       -- Or table format example: { height = "40%", width = "100%"}
+            sections = {
+                left = {
+                    size = "20%",
+                },
+                mid = {
+                    size = "30%",
+                },
+            },
         },
         lsp = {
             auto_attach = true,   -- If set to true, you don't need to manually use attach function
