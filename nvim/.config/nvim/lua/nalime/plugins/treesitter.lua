@@ -3,7 +3,8 @@ return {
     -- Syntax highlighting and more
     "nvim-treesitter/nvim-treesitter",
     main = "nvim-treesitter.configs",
-    version = "*",
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/3092
+    -- version = "*",
     event = "VeryLazy",
 
     opts = {
