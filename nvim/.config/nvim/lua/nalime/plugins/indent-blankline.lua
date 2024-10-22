@@ -17,5 +17,6 @@ return {
                 "undotree",
             },
         },
+        viewport_buffer = { min = 300, max = 500 },
     },
 }
