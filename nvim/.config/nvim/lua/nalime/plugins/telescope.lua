@@ -12,6 +12,7 @@ return {
                 results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
                 preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
             },
+            path_display = { "smart" },
             layout_strategy = "center",
             layout_config = {
                 anchor = "S",
