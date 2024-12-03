@@ -134,6 +134,10 @@ add("n", "<Leader>lk",
     "<Cmd>lua vim.lsp.buf.hover()<CR>",
     "Show info of current symbol")
 
+add("n", "<Leader>lr",
+    '<Cmd>lua vim.lsp.buf.references()<CR>',
+    "Show references")
+
 add("n", "<Leader>la",
     "<Cmd>lua vim.lsp.buf.code_action()<CR>",
     "Select available code action on current line")
