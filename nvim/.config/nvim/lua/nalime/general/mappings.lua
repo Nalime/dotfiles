@@ -135,7 +135,7 @@ add("n", "<Leader>lk",
     "Show info of current symbol")
 
 add("n", "<Leader>lr",
-    '<Cmd>lua vim.lsp.buf.references()<CR>',
+    "<Cmd>lua vim.lsp.buf.references()<CR>",
     "Show references")
 
 add("n", "<Leader>la",
@@ -155,11 +155,11 @@ add("n", "<Leader>lp",
     "Previous diagnostic")
 
 add("n", "<Leader>ln",
-    '<Cmd>lua vim.diagnostic.goto_next()<CR>',
+    "<Cmd>lua vim.diagnostic.goto_next()<CR>",
     "Next diagnostic")
 
 add("n", "<Leader>lv",
-    '<Cmd>Navbuddy<CR>',
+    "<Cmd>Navbuddy<CR>",
     "Open code navigation")
 
 -- Gitsigns
