@@ -7,11 +7,6 @@
 # Configuration files #
 #######################
 
-# Machine-specific settings (in .gitignore)
-specific_path=~/.bash_specific
-# shellcheck source=.bash_specific
-[[ -f "$specific_path" ]] && . "$specific_path"
-
 # Define color escapes
 # shellcheck source=.bash_colors
 . ~/.bash_colors
@@ -195,6 +190,11 @@ alias e=eza
 #############################
 # Machine-specific settings #
 #############################
+
+# Machine-specific settings (in .gitignore)
+specific_path=~/.bash_specific
+# shellcheck source=.bash_specific
+[[ -f "$specific_path" ]] && . "$specific_path"
 
 # Uncomment below in the .bash_specific file
 
