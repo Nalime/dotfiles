@@ -1,4 +1,4 @@
-bash/.bash_specific
+bash/.bash_specific*
 git/.gitconfig
 kitty/.config/kitty/kitty-specific.conf
 linux_apps/.config/gtk-3.0/bookmarks
