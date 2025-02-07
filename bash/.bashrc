@@ -221,3 +221,14 @@ specific_post_path=~/.bash_specific_post
 # keychain (https://github.com/funtoo/keychain)
 # Remember to change the key name
 # eval "$(keychain --eval --agents ssh id_xxx)"
+
+# nvm (https://github.com/nvm-sh/nvm)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Cargo (https://github.com/rust-lang/cargo)
+# PATH="$PATH":~/.cargo/bin
+
+# bob (https://github.com/MordechaiHadad/bob)
+# PATH="$PATH":~/.local/share/bob/nvim-bin
