@@ -43,8 +43,10 @@ export HISTCONTROL=$HISTCONTROL:ignorespace
 # Disable output pausing via Ctrl+S (and enable forward incremental search)
 stty -ixon
 
-# Editors
+# Add personal binaries to PATH
+PATH="$PATH":~/.local/bin
 
+# Set editor variables
 export EDITOR=vim
 export VISUAL=nvim
 
@@ -116,7 +118,7 @@ get_ps1() {
 
 PROMPT_COMMAND='PS1=$(get_ps1)'
 
-# Colorize command outputs
+# Colorize command outputs via aliasing
 [[ $(uname -s) == "FreeBSD" ]] || alias diff='diff --color=auto'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -129,16 +131,17 @@ if [[ "$(uname)" == 'Linux'
     export MANROFFOPT="-P -c"
 fi
 
-# bold/blink
+## bold/blink
 export LESS_TERMCAP_md=${format["bold"]}${color["l_blue"]}
 export LESS_TERMCAP_me=${format["reset"]}
 
-# underline
+## underline
 export LESS_TERMCAP_us=${format["italic"]}${format["underline"]}${color["l_gray"]}
 export LESS_TERMCAP_ue=${format["reset"]}
 
-# Add personal binaries to path
-PATH="$PATH":~/.local/bin
+#################
+# Tool settings #
+#################
 
 # Kyopro tools
 kpr_path=~/A/kyopro/tools/main
@@ -161,9 +164,9 @@ lf() {
     unset LF_CD_FILE
 }
 
-# fzf
+# fzf (https://github.com/junegunn/fzf)
 
-# Preview mode
+## Preview mode
 fzfp() {
     # shellcheck disable=SC2016
     local previewer=(
@@ -175,15 +178,15 @@ fzfp() {
     fzf --preview="${previewer[*]}"
 }
 
-# Set up key bindings and fuzzy completion
+## Set up key bindings and fuzzy completion
 eval "$(fzf --bash)"
 
 # end fzf
 
-# zoxide
+# zoxide (https://github.com/ajeetdsouza/zoxide)
 eval "$(zoxide init bash)"
 
-# eza
+# eza (https://github.com/eza-community/eza)
 eza() {
     command eza \
         --git \
@@ -215,5 +218,6 @@ specific_post_path=~/.bash_specific_post
 # Best to set according to actual memory limits
 # ulimit -Ss $((2 * 1024 * 1024))
 
-# Start keychain (change xxx)
+# keychain (https://github.com/funtoo/keychain)
+# Remember to change the key name
 # eval "$(keychain --eval --agents ssh id_xxx)"
