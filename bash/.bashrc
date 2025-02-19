@@ -50,6 +50,9 @@ PATH="$PATH":~/.local/bin
 export EDITOR=vim
 export VISUAL=nvim
 
+# Set timestamp format
+export TIME_STYLE='+%Y-%m-%d %H:%M:%S'
+
 # Fancy prompt
 # Additionally, on nonzero return, the value is shown and the face changes
 
@@ -187,13 +190,7 @@ eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
 
 # eza (https://github.com/eza-community/eza)
-eza() {
-    command eza \
-        --git \
-        --time-style='+%Y-%m-%d %H:%M:%S' \
-        "$@"
-}
-alias e=eza
+alias e='eza --git'
 
 #############################
 # Machine-specific settings #
