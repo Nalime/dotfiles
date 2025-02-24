@@ -31,7 +31,7 @@ export HISTTIMEFORMAT='%F %T '
 shopt -s histappend
 
 # Record to history file after each execution of command
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
 
 # Do not record commands with leading spaces
 export HISTCONTROL=$HISTCONTROL:ignorespace
