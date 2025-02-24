@@ -16,26 +16,6 @@ specific_pre_path=~/.bash_specific_pre
 # shellcheck source=.bash_colors
 . ~/.bash_colors
 
-#########################
-# Bash history settings #
-#########################
-
-# History size
-export HISTSIZE=999999
-export HISTFILESIZE=999999
-
-# History timestamps
-export HISTTIMEFORMAT='%F %T '
-
-# Append instead of overwriting to history file
-shopt -s histappend
-
-# Record to history file after each execution of command
-export PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
-
-# Do not record commands with leading spaces
-export HISTCONTROL=$HISTCONTROL:ignorespace
-
 ####################
 # General settings #
 ####################
@@ -141,6 +121,26 @@ export LESS_TERMCAP_me=${format["reset"]}
 ## underline
 export LESS_TERMCAP_us=${format["italic"]}${format["underline"]}${color["l_gray"]}
 export LESS_TERMCAP_ue=${format["reset"]}
+
+#########################
+# Bash history settings #
+#########################
+
+# History size
+export HISTSIZE=999999
+export HISTFILESIZE=999999
+
+# History timestamps
+export HISTTIMEFORMAT='%F %T '
+
+# Append instead of overwriting to history file
+shopt -s histappend
+
+# Record to history file after each execution of command
+export PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
+
+# Do not record commands with leading spaces
+export HISTCONTROL=$HISTCONTROL:ignorespace
 
 #################
 # Tool settings #
