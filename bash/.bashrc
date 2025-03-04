@@ -138,7 +138,7 @@ shopt -s histappend
 
 # Record to history file after each execution of command
 # I don't use `history -n` because it seems to act weird
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -c; history -r"
 
 # Do not record commands with leading spaces
 export HISTCONTROL=$HISTCONTROL:ignorespace
