@@ -37,7 +37,7 @@ case "$filetype" in
         ;;
     *)
         echo "- Preview unsupported for mime-type: $filetype"
-        echo "- Information:"
+        echo "- Information (\`file -b\`):"
         file -b "$file" | fmt -w "${w}"
         ;;
 esac
