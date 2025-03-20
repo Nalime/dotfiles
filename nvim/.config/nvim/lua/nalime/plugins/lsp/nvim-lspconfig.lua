@@ -15,6 +15,7 @@ return {
         lspconfig["bashls"].setup({})
         lspconfig["clangd"].setup({})
         lspconfig["cmake"].setup({})
+        lspconfig["jsonls"].setup({})
         lspconfig["ltex"].setup({})
 
         lspconfig["lua_ls"].setup({
@@ -44,6 +45,8 @@ return {
                 },
             },
         })
+
+        lspconfig["ts_ls"].setup({})
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },

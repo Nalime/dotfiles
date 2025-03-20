@@ -10,6 +10,8 @@ return {
             "bashls",
             "clangd",
             "cmake",
+            "jsonls",
+            "ts_ls",
             "ltex",
             "lua_ls",
             "marksman",

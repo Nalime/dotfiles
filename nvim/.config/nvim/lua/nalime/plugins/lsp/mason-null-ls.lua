@@ -11,6 +11,9 @@ return {
             -- "shellcheck", -- linter
             "shfmt", -- formatter
 
+            -- JavaScript
+            "eslint_d", -- linter
+
             -- Lua
             "selene", -- linter
             "stylua", -- formatter
