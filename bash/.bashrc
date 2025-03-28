@@ -14,7 +14,7 @@ specific_pre_path=~/.bash_specific_pre
 
 # Define color escapes
 # shellcheck source=.bash_colors
-. ~/.bash_colors
+source ~/.bash_colors
 
 ####################
 # General settings #
