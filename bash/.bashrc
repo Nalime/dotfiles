@@ -147,7 +147,7 @@ export PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -c; history -r"
 export HISTCONTROL=$HISTCONTROL:ignorespace
 
 # Do not record below commands
-export HISTIGNORE="clear:history"
+export HISTIGNORE="clear:reset:history"
 
 #################
 # Tool settings #
