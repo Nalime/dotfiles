@@ -16,6 +16,9 @@ specific_pre_path=~/.bash_specific_pre
 # shellcheck source=.bash_colors
 source ~/.bash_colors
 
+# Hook for command not found
+source /usr/share/doc/pkgfile/command-not-found.bash
+
 ####################
 # General settings #
 ####################
