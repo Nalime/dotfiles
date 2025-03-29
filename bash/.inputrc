@@ -12,3 +12,8 @@ set mark-symlinked-directories On
 set colored-completion-prefix On
 # Color the common prefix in menu-complete
 set menu-complete-display-prefix On
+
+# Show completion with less TABs
+# https://wiki.archlinux.org/title/Readline#Faster_completion
+set show-all-if-unmodified on
+set show-all-if-ambiguous on
