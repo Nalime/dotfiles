@@ -8,16 +8,21 @@
 #######################
 
 # Machine-specific settings before everything
-specific_pre_path=~/.bash_specific_pre
 # shellcheck source=.bash_specific_pre
-[[ -f "$specific_pre_path" ]] && . "$specific_pre_path"
+if [[ -r ~/.bash_specific_pre ]]; then
+    source ~/.bash_specific_pre
+fi
 
 # Define color escapes
 # shellcheck source=.bash_colors
-source ~/.bash_colors
+if [[ -r ~/.bash_colors ]]; then
+    source ~/.bash_colors
+fi
 
 # Hook for command not found
-source /usr/share/doc/pkgfile/command-not-found.bash
+if [[ -r /usr/share/doc/pkgfile/command-not-found.bash ]]; then
+    source /usr/share/doc/pkgfile/command-not-found.bash
+fi
 
 # bash-completion
 if [[ -r /usr/share/bash-completion/bash_completion ]]; then
