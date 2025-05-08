@@ -17,6 +17,5 @@ return {
             "marksman",
             "pyright",
         },
-        automatic_installation = true,
     },
 }
