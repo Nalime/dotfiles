@@ -234,7 +234,7 @@ specific_post_path=~/.bash_specific_post
 
 # keychain (https://github.com/funtoo/keychain)
 # Remember to change the key name
-# eval "$(keychain --eval --agents ssh id_xxx)"
+# eval "$(keychain --eval id_xxx)"
 
 # nvm (https://github.com/nvm-sh/nvm)
 # export NVM_DIR="$HOME/.nvm"
