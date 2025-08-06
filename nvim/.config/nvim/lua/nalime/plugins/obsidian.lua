@@ -11,7 +11,7 @@ return {
         daily_notes = {
             folder = "02 Periodic",
             date_format = "%Y-%m-%d",
-            template = "10 Technical/Templates/Daily note template",
+            template = "10 Technical/Templates/Periodic/Daily note template",
         },
         note_id_func = function(title)
             if title ~= nil then
