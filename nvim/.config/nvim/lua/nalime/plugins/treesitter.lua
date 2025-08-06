@@ -10,6 +10,7 @@ return {
     opts = {
         ensure_installed = "all",
         auto_install = false,
+        ignore_install = { "ipkg" },
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = { "markdown" },
