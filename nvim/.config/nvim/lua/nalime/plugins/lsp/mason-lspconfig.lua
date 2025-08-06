@@ -13,7 +13,7 @@ return {
             "cmake",
             "jsonls",
             "ts_ls",
-            "ltex",
+            "ltex_plus",
             "lua_ls",
             "marksman",
             "pyright",

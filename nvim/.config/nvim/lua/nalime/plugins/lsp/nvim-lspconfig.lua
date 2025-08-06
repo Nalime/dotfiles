@@ -10,13 +10,29 @@ return {
 
         -- For server configurations, visit either:
         -- :h lspconfig-all
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
         lspconfig["bashls"].setup({})
         lspconfig["clangd"].setup({})
         lspconfig["cmake"].setup({})
         lspconfig["jsonls"].setup({})
-        lspconfig["ltex"].setup({})
+
+        lspconfig["ltex_plus"].setup({
+            on_attach = function(client, bufnr)
+                require("ltex_extra").setup({
+                    load_langs = { "en-US" },
+                    path = "~/A/ltex",
+                })
+            end,
+            settings = {
+                ltex = {
+                    language = "en-US",
+                    additionalRules = {
+                        enablePickyRules = true,
+                    },
+                },
+            },
+        })
 
         lspconfig["lua_ls"].setup({
             settings = {
