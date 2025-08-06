@@ -6,6 +6,7 @@ return {
     event = "VeryLazy",
 
     opts = {
+        automatic_enable = false,
         ensure_installed = {
             "bashls",
             "clangd",
