@@ -269,7 +269,7 @@ gaps inner 5
 
 ### polybar ###
 gaps top 30
-exec_always --no-startup-id ~/'.config/polybar/launch.sh'
+exec_always --no-startup-id ~/'.config/polybar/launch.sh' i3
 
 ### picom ###
 exec_always --no-startup-id ~/'.config/picom/launch.sh'
