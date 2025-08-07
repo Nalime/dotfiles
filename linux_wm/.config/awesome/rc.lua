@@ -54,8 +54,8 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "kitty"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -286,10 +286,7 @@ globalkeys = gears.table.join(
         awful.screen.focus_relative(-1)
     end, { description = "focus the previous screen", group = "screen" }),
     awful.key({ modkey }, "Tab", function()
-        awful.client.focus.history.previous()
-        if client.focus then
-            client.focus:raise()
-        end
+        awful.spawn("rofi -show window");
     end, { description = "go back", group = "client" }),
 
     -- Standard program
@@ -331,10 +328,55 @@ globalkeys = gears.table.join(
         end
     end, { description = "restore minimized", group = "client" }),
 
-    -- Menubar
+    -- Launch (rofi)
     awful.key({ modkey }, "space", function()
-        menubar.show()
-    end, { description = "show the menubar", group = "launcher" })
+        awful.spawn("rofi -show drun");
+    end, { description = "launch application", group = "launcher" }),
+
+    -- Screenshot (maim)
+    awful.key({}, "Print", function()
+        awful.spawn.with_shell([[
+            maim |\
+            tee ~/Pictures/"$(date +%FT%T.%N)" |\
+            xclip -sel clip -t image/png
+        ]]);
+    end, { description = "take a screenshot", group = "ABC" }),
+
+    -- Brightness adjust (xbacklight)
+    awful.key({}, "XF86MonBrightnessUp", function()
+        awful.spawn("light -A 5");
+    end, { description = "increase brightness", group = "ABC" }),
+    awful.key({}, "XF86MonBrightnessDown", function()
+        awful.spawn("light -U 5");
+    end, { description = "decrease brightness", group = "ABC" }),
+
+    -- Volume control (pactl)
+    awful.key({}, "XF86AudioRaiseVolume", function()
+        awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%");
+    end, { description = "increase volume", group = "ABC" }),
+    awful.key({}, "XF86AudioLowerVolume", function()
+        awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%");
+    end, { description = "decrease volume", group = "ABC" }),
+    awful.key({}, "XF86AudioMute", function()
+        awful.spawn("pactl set-sink-mute   @DEFAULT_SINK@ toggle");
+    end, { description = "mute audio", group = "ABC" }),
+    awful.key({}, "XF86AudioMicMute", function()
+        awful.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle");
+    end, { description = "mute microphone", group = "ABC" }),
+
+    -- Playback control (playerctl)
+    awful.key({}, "XF86AudioPlay", function()
+        awful.spawn("playerctl play-pause");
+    end, { description = "pause/resume playback", group = "ABC" }),
+    awful.key({}, "XF86AudioPause", function()
+        awful.spawn("playerctl play-pause");
+    end, { description = "pause/resume playback", group = "ABC" }),
+    awful.key({}, "XF86AudioNext", function()
+        awful.spawn("playerctl next");
+    end, { description = "next song", group = "ABC" }),
+    awful.key({}, "XF86AudioPrev", function()
+        awful.spawn("playerctl previous");
+    end, { description = "previous song", group = "ABC" })
 )
 
 clientkeys = gears.table.join(
