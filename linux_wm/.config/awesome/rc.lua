@@ -256,38 +256,38 @@ globalkeys = gears.table.join(
 
     -- Brightness adjust (xbacklight)
     awful.key({}, "XF86MonBrightnessUp", function()
-        awful.spawn("light -A 5");
+        awful.spawn("light -A 5", false);
     end, { description = "increase brightness", group = "control" }),
     awful.key({}, "XF86MonBrightnessDown", function()
-        awful.spawn("light -U 5");
+        awful.spawn("light -U 5", false);
     end, { description = "decrease brightness", group = "control" }),
 
     -- Volume control (pactl)
     awful.key({}, "XF86AudioRaiseVolume", function()
-        awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%");
+        awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false);
     end, { description = "increase volume", group = "control" }),
     awful.key({}, "XF86AudioLowerVolume", function()
-        awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%");
+        awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%", false);
     end, { description = "decrease volume", group = "control" }),
     awful.key({}, "XF86AudioMute", function()
-        awful.spawn("pactl set-sink-mute   @DEFAULT_SINK@ toggle");
+        awful.spawn("pactl set-sink-mute   @DEFAULT_SINK@ toggle", false);
     end, { description = "mute audio", group = "control" }),
     awful.key({}, "XF86AudioMicMute", function()
-        awful.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle");
+        awful.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false);
     end, { description = "mute microphone", group = "control" }),
 
     -- Playback control (playerctl)
     awful.key({}, "XF86AudioPlay", function()
-        awful.spawn("playerctl play-pause");
+        awful.spawn("playerctl play-pause", false);
     end, { description = "pause/resume playback", group = "control" }),
     awful.key({}, "XF86AudioPause", function()
-        awful.spawn("playerctl play-pause");
+        awful.spawn("playerctl play-pause", false);
     end, { description = "pause/resume playback", group = "control" }),
     awful.key({}, "XF86AudioNext", function()
-        awful.spawn("playerctl next");
+        awful.spawn("playerctl next", false);
     end, { description = "next song", group = "control" }),
     awful.key({}, "XF86AudioPrev", function()
-        awful.spawn("playerctl previous");
+        awful.spawn("playerctl previous", false);
     end, { description = "previous song", group = "control" })
 )
 
