@@ -176,7 +176,24 @@ globalkeys = gears.table.join(
         awful.screen.focus_relative(-1)
     end, { description = "focus the previous screen", group = "screen" }),
     awful.key({ modkey }, "Tab", function()
-        awful.spawn("rofi -show window");
+        -- https://github.com/davatorium/rofi/issues/38
+        awful.spawn.with_shell([[
+            rofi -show window \
+                -kb-cancel 'Super+Escape,Escape' \
+                -kb-accept-entry '!Super+Super_L,!Super_L,!Super+Tab,Return' \
+                -kb-row-down 'Super+Tab' \
+                -kb-row-up 'Super+ISO_Left_Tab'
+        ]])
+    end, { description = "select window", group = "client" }),
+    awful.key({ "Mod1" }, "Tab", function()
+        -- https://unix.stackexchange.com/a/629062
+        local c = awful.client.focus.history.list[2]
+        client.focus = c
+        local t = client.focus and client.focus.first_tag or nil
+        if t then
+            t:view_only()
+        end
+        c:raise()
     end, { description = "go back", group = "client" }),
 
     -- Standard program
