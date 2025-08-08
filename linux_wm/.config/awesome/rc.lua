@@ -218,6 +218,11 @@ globalkeys = gears.table.join(
         end
     end, { description = "restore minimized", group = "client" }),
 
+    -- Lock screen
+    awful.key({ modkey, "Mod1" }, "q", function()
+        awful.spawn("loginctl lock-session", false);
+    end, { description = "lock screen", group = "global" }),
+
     -- Launch (rofi)
     awful.key({ modkey }, "space", function()
         awful.spawn("rofi -show drun");
@@ -430,3 +435,52 @@ end)
 -- }}}
 
 awful.spawn.with_shell("~/.config/polybar/launch.sh awesome")
+
+awful.spawn.with_shell([[
+    xss-lock --transfer-sleep-lock -- \
+        i3lock -b -e -n \
+        -i ~/A/wallpaper.png -F \
+        \
+        --clock \
+        --indicator \
+        --radius 250 \
+        --ring-width 10 \
+        \
+        --inside-color=000000cc \
+        --ring-color=00cc00cc \
+        --insidever-color=000000cc \
+        --ringver-color=4488cccc \
+        --insidewrong-color=880000cc \
+        --ringwrong-color=ff0000cc \
+        \
+        --line-color=ffffff \
+        --keyhl-color=44ff44 \
+        --bshl-color=ff4444 \
+        --separator-color=00000000 \
+        \
+        --verif-color=ffffff \
+        --wrong-color=ffffff \
+        --modif-color=ffffff \
+        --layout-color=ffffff \
+        --time-color=ffffff \
+        --date-color=ffffff \
+        \
+        --date-str="%Y-%m-%d (%a.)" \
+        --verif-text="._."\
+        --wrong-text="x_x"\
+        --noinput-text="NO INPUT"\
+        \
+        --time-font="Roboto Mono" \
+        --date-font="Roboto Mono" \
+        --layout-font="Roboto Mono" \
+        --verif-font="Roboto Mono" \
+        --wrong-font="Roboto Mono" \
+        \
+        --time-size=80 \
+        --date-size=40 \
+        --layout-size=80 \
+        --verif-size=80 \
+        --wrong-size=80 \
+        \
+        --date-pos="tx:ty+50"
+]])
