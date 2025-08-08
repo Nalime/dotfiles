@@ -150,7 +150,7 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ modkey }, "/", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
+    awful.key({ modkey }, "/", hotkeys_popup.show_help, { description = "show help", group = "global" }),
     awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
     awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
     awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
@@ -200,8 +200,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "Return", function()
         awful.spawn(terminal)
     end, { description = "open a terminal", group = "launcher" }),
-    awful.key({ modkey, "Shift" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
-    awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+    awful.key({ modkey, "Shift" }, "r", awesome.restart, { description = "reload awesome", group = "global" }),
+    awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "global" }),
     awful.key({ modkey }, "l", function()
         awful.tag.incmwfact(0.05)
     end, { description = "increase master width factor", group = "layout" }),
@@ -252,43 +252,43 @@ globalkeys = gears.table.join(
             tee ~/Pictures/"$(date +%FT%T.%N)" |\
             xclip -sel clip -t image/png
         ]]);
-    end, { description = "take a screenshot", group = "ABC" }),
+    end, { description = "take a screenshot", group = "global" }),
 
     -- Brightness adjust (xbacklight)
     awful.key({}, "XF86MonBrightnessUp", function()
         awful.spawn("light -A 5");
-    end, { description = "increase brightness", group = "ABC" }),
+    end, { description = "increase brightness", group = "control" }),
     awful.key({}, "XF86MonBrightnessDown", function()
         awful.spawn("light -U 5");
-    end, { description = "decrease brightness", group = "ABC" }),
+    end, { description = "decrease brightness", group = "control" }),
 
     -- Volume control (pactl)
     awful.key({}, "XF86AudioRaiseVolume", function()
         awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%");
-    end, { description = "increase volume", group = "ABC" }),
+    end, { description = "increase volume", group = "control" }),
     awful.key({}, "XF86AudioLowerVolume", function()
         awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%");
-    end, { description = "decrease volume", group = "ABC" }),
+    end, { description = "decrease volume", group = "control" }),
     awful.key({}, "XF86AudioMute", function()
         awful.spawn("pactl set-sink-mute   @DEFAULT_SINK@ toggle");
-    end, { description = "mute audio", group = "ABC" }),
+    end, { description = "mute audio", group = "control" }),
     awful.key({}, "XF86AudioMicMute", function()
         awful.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle");
-    end, { description = "mute microphone", group = "ABC" }),
+    end, { description = "mute microphone", group = "control" }),
 
     -- Playback control (playerctl)
     awful.key({}, "XF86AudioPlay", function()
         awful.spawn("playerctl play-pause");
-    end, { description = "pause/resume playback", group = "ABC" }),
+    end, { description = "pause/resume playback", group = "control" }),
     awful.key({}, "XF86AudioPause", function()
         awful.spawn("playerctl play-pause");
-    end, { description = "pause/resume playback", group = "ABC" }),
+    end, { description = "pause/resume playback", group = "control" }),
     awful.key({}, "XF86AudioNext", function()
         awful.spawn("playerctl next");
-    end, { description = "next song", group = "ABC" }),
+    end, { description = "next song", group = "control" }),
     awful.key({}, "XF86AudioPrev", function()
         awful.spawn("playerctl previous");
-    end, { description = "previous song", group = "ABC" })
+    end, { description = "previous song", group = "control" })
 )
 
 clientkeys = gears.table.join(
