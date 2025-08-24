@@ -2,6 +2,14 @@ local spaces = function()
     return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local eol = function()
+    if vim.bo.endofline == true then
+        return ""
+    else
+        return ""
+    end
+end
+
 return {
     -- lualine: Statusline
     -- A fancy replacement of (Neo)Vim's vanilla status bar
@@ -30,7 +38,7 @@ return {
             lualine_c = {
                 { "filename", path = 1 },
             },
-            lualine_x = { spaces, "encoding", "fileformat", "filetype" },
+            lualine_x = { spaces, "encoding", eol, "fileformat", "filetype" },
             lualine_y = { "progress" },
             lualine_z = { "location" },
         },
