@@ -1,5 +1,5 @@
 local spaces = function()
-    return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+    return "sw: " .. vim.bo.shiftwidth
 end
 
 local eol = function()
