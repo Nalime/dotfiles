@@ -74,7 +74,6 @@ cmd on-cd &{{
 # end zoxide
 
 # Mappings
-map V invert-below
 map g/ cd /
 map x trash
 map X delete
