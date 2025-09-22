@@ -453,6 +453,7 @@ end)
 
 awful.spawn.with_shell("~/.config/polybar/launch.sh awesome")
 awful.spawn.with_shell("~/.config/picom/launch.sh")
+awful.spawn.with_shell("ibus-daemon --xim --daemonize")
 
 awful.spawn.with_shell([[
     xss-lock --transfer-sleep-lock -- \
