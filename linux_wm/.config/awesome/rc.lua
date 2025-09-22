@@ -452,7 +452,6 @@ end)
 -- }}}
 
 awful.spawn.with_shell("~/.config/polybar/launch.sh awesome")
-awful.spawn.with_shell("~/.config/picom/launch.sh")
 awful.spawn.with_shell("ibus-daemon --xim --daemonize")
 
 awful.spawn.with_shell([[
@@ -502,4 +501,12 @@ awful.spawn.with_shell([[
         --wrong-size=80 \
         \
         --date-pos="tx:ty+50"
+]])
+
+awful.spawn.with_shell([[
+    if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then
+        exit
+    fi
+    xrdb -merge <<< "awesome.started:true"
+    dex --environment Awesome --autostart --search-paths "${XDG_CONFIG_HOME:-$HOME/.config}/autostart:${XDG_CONFIG_DIRS:-/etc/xdg}/autostart"
 ]])
