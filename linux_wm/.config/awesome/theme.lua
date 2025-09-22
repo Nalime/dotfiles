@@ -13,7 +13,7 @@ local theme = {}
 
 theme.wallpaper = "~/A/wallpaper.png"
 
-theme.font          = "Terminus Bold 12"
+theme.font          = "Inter Medium 11"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
