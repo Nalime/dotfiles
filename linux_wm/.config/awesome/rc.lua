@@ -249,8 +249,8 @@ globalkeys = gears.table.join(
     awful.key({}, "Print", function()
         awful.spawn.with_shell([[
             maim |\
-            tee ~/Pictures/"$(date +%FT%T.%N)" |\
-            xclip -sel clip -t image/png
+                tee ~/Pictures/"$(date +%FT%T.%N)" |\
+                xclip -sel clip -t image/png
         ]]);
     end, { description = "take a screenshot", group = "global" }),
 
