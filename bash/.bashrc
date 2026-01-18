@@ -209,6 +209,9 @@ eval "$(zoxide init bash)"
 # eza (https://github.com/eza-community/eza)
 alias e='eza --git'
 
+# lazygit (https://github.com/jesseduffield/lazygit)
+alias lg='lazygit'
+
 #############################
 # Machine-specific settings #
 #############################
