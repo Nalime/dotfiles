@@ -1,7 +1,18 @@
-# Set lf shell to bash
+# vim:ft=sh:foldmethod=marker
+
+# set {{{
+
+# Set interpreter
 set shell bash
 
-# Like bash's PS1
+# Set IFS (internal field separator) for shell commands
+# Otherwise the output of $f and $fx is split for paths with spaces
+set ifs "\n"
+
+# Preserve attributes when copying files
+set preserve "mode:timestamps"
+
+# Customize top-left prompt text (like PS1 in bash)
 set promptfmt "
 \033[1mlf> 
 \033[92;1m%u
@@ -15,81 +26,183 @@ set promptfmt "
 # Set datetime format
 set timefmt "(Mon.) 2006-01-02 15:04:05"
 
-# Show icons according to file type
-# set icons
+# Show hidden files (starting with .)
+set hidden
 
-# Attributes preserved when copying files
-set preserve "mode:timestamps"
+# Show file sizes and mtime by default (za)
+set info size:time
 
-# Show image previews (via kitty)
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
-
-# Show (relative) line numbers
+# Show and color (relative) line numbers
 set number
 set relativenumber
+set numberfmt "\033[90m" # dark gray
 
-# Color line numbers dark gray
-set numberfmt "\033[90m"
-
-# Like Vim's scrolloff
+# Keep context around cursor (like Vim)
 set scrolloff 5
 
 # Enable mouse input
 set mouse
 
-# Show hidden files (.foo_file)
-set hidden
+# Preview files (through terminal emulator kitty)
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
 
-# Set ratios depending on terminal width
-cmd on-redraw %{{
-    if [[ $lf_width -le 120 ]]; then
-        lf -remote "send $id set ratios 2:3"
-    else
-        lf -remote "send $id set ratios 1:2:3"
-    fi
-}}
-# on-redraw is not in r31
-on-redraw
+# }}}
 
-# trash-cli
-cmd trash %IFS=$'\t\n'; trash $fx
-
-# zoxide
-
-cmd z %{{
-    result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
-    lf -remote "send $id cd \"$result\""
-}}
-
-cmd zi ${{
-    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
-    lf -remote "send $id cd \"$result\""
-}}
-
-cmd on-cd &{{
-    zoxide add "$PWD"
-}}
-
-# end zoxide
-
-# Mappings
-map g/ cd /
-map x trash
-map X delete
+# cmd {{{
 
 # Write current directory to a file specified by the invoking shell
 cmd quit-and-cd &{{
     pwd > $LF_CD_FILE
     lf -remote "send $id quit"
 }}
+
+# Create file or directory
+cmd touch %touch -- "$@"
+cmd mkdir %mkdir -p -- "$@"
+
+# Follow pointed symbolic link
+# https://github.com/gokcehan/lf/wiki/Tips#follow-symbolic-links
+cmd follow-link %{{
+    lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
+
+# Yank file names/paths
+# https://github.com/gokcehan/lf/wiki/Tips#yank-paths-into-your-clipboard
+cmd yank-cwd &printf '%s' "$PWD" | xclip -sel clip -i
+cmd yank-paths $printf '%s' "$fx" | xclip -sel clip -i
+cmd yank-dirname &{{
+    dirname -- $fx | head -c-1 | xclip -sel clip -i
+}}
+cmd yank-basename &{{
+    basename -a -- $fx | head -c-1 | xclip -sel clip -i
+}}
+cmd yank-basename-without-extension &{{
+    basename -a -- $fx | cut -d. -f1 | head -c-1 | xclip -sel clip -i
+}}
+
+# y (select for copy) and P to paste symlink
+# d (select for cut) and P to paste hard link
+# https://github.com/gokcehan/lf/wiki/Tips#creating-links
+cmd link %{{
+    flags="$1"
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echoerr no files to link"
+        exit
+    fi
+    case "$mode" in
+        # 'copy' mode indicates a symlink
+        copy) ln "$flags" -t . -- "$@";;
+        # while 'move' mode indicates a hard link
+        move)
+            ln -t . -- "$@"
+            lf -remote "send clear"
+            ;;
+    esac
+}}
+
+# vimv
+# Doesn't work if a selected file is out of the current directory
+# https://github.com/gokcehan/lf/wiki/Tips#bulk-rename-multiple-files
+cmd bulk-rename ${{
+    vimv -- $(basename -a -- $fx)
+    lf -remote "send $id :load; unselect"
+}}
+
+# trash-cli
+cmd trash %set -f; trash-put $fx
+
+# zoxide
+# Also in `cmd on-cd`
+# https://github.com/gokcehan/lf/wiki/Integrations#zoxide
+cmd z %{{
+    result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+cmd zi ${{
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+# on-* {{{
+
+cmd on-redraw %{{
+    # Set pane width ratios depending on terminal width
+    # Don't show the preview pane if width <= 120
+    if [[ $lf_width -le 120 ]]; then
+        lf -remote "send $id set ratios 2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3"
+    fi
+}}
+
+cmd on-cd &{{
+    # zoxide
+    zoxide add "$PWD"
+
+    # Set title
+    lf -remote "send $id tty-write \"\033]0;lf: ${PWD/#$HOME/\~}\007\""
+}}
+
+# }}}
+
+# }}}
+
+# map {{{
+
 map Q quit-and-cd
 
+map g/ cd /
+map gc cd ~/.config/
+map gd cd ~/Downloads/
+map gf follow-link
+
+map c
+map U clear
+
+# Yank file names/paths (mappings from yazi)
+map c. yank-cwd
+map cc yank-paths
+map cd yank-dirname
+map cf yank-basename
+map cn yank-basename-without-extension
+
+# Create links (mappings from yazi)
+map - link -s  # absolute
+map _ link -sr # relative
+
+map o $xdg-open "$f"
+
+map x trash
+map X delete
+
+map a push :touch<space>
+map A push :mkdir<space>
+
+map R bulk-rename
+
+# Stop lf
+# https://github.com/gokcehan/lf/wiki/Tips#put-lf-into-the-background
+map <c-z> $kill -STOP "$PPID"
+
+# }}}
+
+# misc {{{
+
 # Warn about nested instances
+# https://github.com/gokcehan/lf/wiki/Tips#follow-symbolic-links
 &{{
     sleep 0.2
     [[ $LF_LEVEL -eq 1 ]] ||\
         lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
 }}
 
-# vim: ft=sh
+# Show current directory as title (like stock yazi)
+# Also in `cmd on-cd`
+# https://github.com/gokcehan/lf/wiki/Tips#show-the-current-directory-in-the-window-title
+&lf -remote "send $id tty-write \"\033]0;lf: ${PWD/#$HOME/\~}\007\""
+
+# }}}
