@@ -18,8 +18,7 @@ bat_with_opts() {
 
 case "$filetype" in
     image/*)
-        kitty \
-            +kitten icat \
+        kitten icat \
             --silent \
             --stdin no \
             --transfer-mode file \
