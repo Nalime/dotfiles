@@ -20,7 +20,8 @@ set promptfmt "
 \033[32;1m%h
 \033[0m:
 \033[94;1m%d
-\033[0m\033[1m%f\033[0m
+\033[97;1m%f
+\033[0m
 "
 
 # Set datetime format
@@ -143,14 +144,42 @@ cmd on-init :{{
         fi
     }}
     on-redraw
+
+    on-cd init
 }}
 
 cmd on-cd &{{
-    # zoxide
-    zoxide add "$PWD"
+    printf -v fmt '%s' \
+        '\033[1mlf> ' \
+        '\033[92;1m%u' \
+        '\033[0m@' \
+        '\033[32;1m%h' \
+        '\033[0m:' \
+        '\033[94;1m%d' \
+        '\033[97;1m%f' \
+        '\033[0m'
+
+    if [[ $# = 0 ]]; then
+        # zoxide
+        zoxide add "$PWD"
+    fi
+
+    # Display git repository status in your prompt
+    # https://github.com/gokcehan/lf/wiki/Integrations#git
+    source /usr/share/git/completion/git-prompt.sh
+    GIT_PS1_SHOWCOLORHINTS=yes
+    GIT_PS1_SHOWDIRTYSTATE=auto
+    GIT_PS1_SHOWSTASHSTATE=auto
+    GIT_PS1_SHOWUNTRACKEDFILES=auto
+    GIT_PS1_SHOWUPSTREAM=auto
+    GIT_PS1_COMPRESSSPARSESTATE=auto
+    fmt+="$(__git_ps1 " (%s)")" || true
 
     # Set title
     lf -remote "send $id tty-write \"\033]0;lf: ${PWD/#$HOME/\~}\007\""
+
+    # Update prompt
+    lf -remote "send $id set promptfmt \"$fmt\""
 }}
 
 # }}}
