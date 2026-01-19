@@ -32,8 +32,8 @@ set infotimefmtold "2006-01-02"
 # Show hidden files (starting with .)
 set hidden
 
-# Show file sizes and mtime by default (za)
-set info size:time
+# Show file mtime and git status by default
+set info time:custom
 
 # Show and color (relative) line numbers
 set number
@@ -182,6 +182,31 @@ cmd on-cd &{{
     lf -remote "send $id set promptfmt \"$fmt\""
 }}
 
+cmd on-load &{{
+    # Show git status for each file
+    # https://github.com/gokcehan/lf/wiki/Integrations#git
+    cd "$(dirname "$1")" || exit 1
+    [ "$(git rev-parse --is-inside-git-dir 2>/dev/null)" = false ] || exit 0
+
+    cmds=""
+
+    for file in "$@"; do
+        case "$file" in
+            */.git|*/.git/*) continue;;
+        esac
+
+        status=$(git status --porcelain --ignored -- "$file" | cut -c1-2 | head -n1)
+
+        if [ -n "$status" ]; then
+            cmds="${cmds}addcustominfo ${file} \"$status\"; "
+        else
+            cmds="${cmds}addcustominfo ${file} ''; "
+        fi
+    done
+
+    lf -remote "send $id :$cmds"
+}}
+
 # }}}
 
 # }}}
@@ -204,6 +229,12 @@ map cc yank-paths
 map cd yank-dirname
 map cf yank-basename
 map cn yank-basename-without-extension
+
+# Show custom column in set info
+map za set info size:time:custom
+map zc set info custom
+map zs set info size:custom
+map zt set info time:custom
 
 # Create links (mappings from yazi)
 map - link -s  # absolute
