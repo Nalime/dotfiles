@@ -29,6 +29,9 @@ set timefmt "(Mon.) 2006-01-02 15:04:05"
 set infotimefmtnew "01-02 15:04"
 set infotimefmtold "2006-01-02"
 
+# Show file type icons
+set icons
+
 # Show hidden files (starting with .)
 set hidden
 
