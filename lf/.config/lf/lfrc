@@ -70,6 +70,9 @@ cmd quit-and-cd &{{
 cmd touch %touch -- "$@"
 cmd mkdir %mkdir -p -- "$@"
 
+# chmod
+cmd chmod &chmod "$@" -- $fx && lf -remote "send $id reload"
+
 # Follow pointed symbolic link
 # https://github.com/gokcehan/lf/wiki/Tips#follow-symbolic-links
 cmd follow-link %{{
@@ -253,6 +256,8 @@ map X delete
 
 map a push :touch<space>
 map A push :mkdir<space>
+
+map = push :chmod<space>
 
 map R bulk-rename
 
