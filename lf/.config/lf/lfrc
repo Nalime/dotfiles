@@ -131,14 +131,18 @@ cmd zi ${{
 
 # on-* {{{
 
-cmd on-redraw %{{
-    # Set pane width ratios depending on terminal width
-    # Don't show the preview pane if width <= 120
-    if [[ $lf_width -le 120 ]]; then
-        lf -remote "send $id set ratios 2:3"
-    else
-        lf -remote "send $id set ratios 1:2:3"
-    fi
+cmd on-init :{{
+    cmd on-redraw %{{
+        # Set pane width ratios depending on terminal width
+        # Don't show the preview pane if width <= 120
+        # https://github.com/gokcehan/lf/wiki/Tips#dynamically-set-number-of-columns
+        if [[ $lf_width -le 120 ]]; then
+            lf -remote "send $id set ratios 2:3"
+        else
+            lf -remote "send $id set ratios 1:2:3"
+        fi
+    }}
+    on-redraw
 }}
 
 cmd on-cd &{{
