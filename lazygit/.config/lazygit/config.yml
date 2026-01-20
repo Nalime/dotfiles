@@ -3,3 +3,6 @@ gui:
     timeFormat: 060102
     shortTimeFormat: 15:04
     showNumstatInFilesView: true
+git:
+    pagers:
+        - pager: delta --paging=never
