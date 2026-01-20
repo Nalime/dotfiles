@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-file=$1
+f=$1
 w=$2
 h=$3
 x=$4
 y=$5
 
-filetype="$( file -Lb --mime-type "$file")"
+filetype="$( file -Lb --mime-type "${f}")"
 
 bat_with_opts() {
     bat \
@@ -19,24 +19,22 @@ bat_with_opts() {
 case "$filetype" in
     image/*)
         kitten icat \
-            --silent \
             --stdin no \
-            --transfer-mode file \
+            --transfer-mode memory \
             --place "${w}x${h}@${x}x${y}" \
-            "$file" \
-            < /dev/null \
+            "${f}" \
             > /dev/tty
         exit 1
         ;;
     application/json)
-        jq < "$file" | bat_with_opts --language json
+        jq < "${f}" | bat_with_opts --language json
         ;;
     text/*)
-        bat_with_opts "$file"
+        bat_with_opts "${f}"
         ;;
     *)
         echo "- Preview unsupported for mime-type: $filetype"
         echo "- Information (\`file -b\`):"
-        file -b "$file" | fmt -w "${w}"
+        file -b "${f}" | fmt -w "${w}"
         ;;
 esac
