@@ -1,0 +1,5 @@
+gui:
+    scrollHeight: 10
+    timeFormat: 060102
+    shortTimeFormat: 15:04
+    showNumstatInFilesView: true
