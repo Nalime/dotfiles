@@ -76,9 +76,16 @@ add("i", "{<",      "{<CR>},<Esc>O", "Make {}, block")
 add({"n", "v"}, "<Leader>p", '"+p', '[Quick] "+p')
 add({"n", "v"}, "<Leader>P", '"+P', '[Quick] "+P')
 add({"n", "v"}, "<Leader>y", '"+y', '[Quick] "+y')
-add({"n", "v"}, "<Leader>Y", '"+Y', '[Quick] "+Y')
+add("n", "<Leader>Y", '"+y$', '[Quick] "+Y')
+add("v", "<Leader>Y", '"+Y', '[Quick] "+Y')
 add({"n", "v"}, "<Leader>d", '"+d', '[Quick] "+d')
 add({"n", "v"}, "<Leader>D", '"+D', '[Quick] "+D')
+add({"n", "v"}, "<Leader>x", '"+x', '[Quick] "+x')
+add({"n", "v"}, "<Leader>X", '"+X', '[Quick] "+X')
+add({"n", "v"}, "<Leader>c", '"+c', '[Quick] "+c')
+add({"n", "v"}, "<Leader>C", '"+C', '[Quick] "+C')
+add({"n", "v"}, "<Leader>s", '"+s', '[Quick] "+s')
+add("n", "<Leader>S", '"+S', '[Quick] "+S') -- v_S activates nvim-surround
 
 -- Emacs-style (lol) command-line editing
 rm("c", "<C-b>")
