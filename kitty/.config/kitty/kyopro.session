@@ -1,0 +1,6 @@
+# vim:ft=conf
+
+new_tab Kyopro Session
+cd ~/A/kyopro/work
+launch --title 'Kyopro Coding'
+launch --title 'Kyopro Prompt'
