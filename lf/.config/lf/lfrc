@@ -139,6 +139,9 @@ cmd zi ${{
     lf -remote "send $id cd \"$result\""
 }}
 
+# dragon-drop
+cmd drag-out &dragon-drop $@ $fx
+
 # on-* {{{
 
 cmd on-init :{{
@@ -260,6 +263,9 @@ map A push :mkdir<space>
 map = push :chmod<space>
 
 map R bulk-rename
+
+map b drag-out
+map B drag-out -a -x
 
 # Stop lf
 # https://github.com/gokcehan/lf/wiki/Tips#put-lf-into-the-background
