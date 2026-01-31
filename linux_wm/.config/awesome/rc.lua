@@ -488,11 +488,11 @@ awful.spawn.with_shell([[
         --wrong-text="x_x"\
         --noinput-text="NO INPUT"\
         \
-        --time-font="Roboto Mono" \
-        --date-font="Roboto Mono" \
-        --layout-font="Roboto Mono" \
-        --verif-font="Roboto Mono" \
-        --wrong-font="Roboto Mono" \
+        --time-font="Adwaita Mono" \
+        --date-font="Adwaita Mono" \
+        --layout-font="Adwaita Mono" \
+        --verif-font="Adwaita Mono" \
+        --wrong-font="Adwaita Mono" \
         \
         --time-size=80 \
         --date-size=40 \

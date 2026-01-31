@@ -1,6 +1,6 @@
 configuration {
     modes: "";
-    font: "Inter Medium 16";
+    font: "Adwaita Sans Medium 16";
     show-icons: true;
     display-window: "Windows";
     display-drun: "Applications";
