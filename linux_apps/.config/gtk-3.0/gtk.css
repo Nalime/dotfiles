@@ -1,0 +1,6 @@
+@define-color accent_color green;
+@define-color accent_bg_color @accent_color;
+
+row:selected, row:hover, placessidebar.sidebar row.sidebar-row:hover, placessidebar.sidebar row.sidebar-row:checked, placessidebar.sidebar row.sidebar-row:selected, menu menuitem:hover, .menu menuitem:hover, .sidebar:selected, placessidebar row:selected, .caja-side-pane scrolledwindow.frame treeview.view:hover, .nemo-window scrolledwindow.frame treeview.view:hover, .thunar scrolledwindow.frame treeview.view:hover, .nemo-window treeview:hover, .nemo-window treeview button:hover, treeview.view:hover, .nemo-window treeview button:active, treeview treeview.view:selected, treeview.view:selected:focus, treeview treeview.view:selected:backdrop, treeview.view:selected:backdrop, .caja-side-pane scrolledwindow.frame treeview.view:selected,  .nautilus-window placessidebar.sidebar row.sidebar-row:hover, .nautilus-window placessidebar.sidebar row.sidebar-row:checked, .nautilus-window placessidebar.sidebar row.sidebar-row:selected {
+    background-color: @accent_bg_color;
+}
