@@ -140,6 +140,10 @@ export LESS_TERMCAP_ue=${format["reset"]}
 #########################
 
 # History size
+# WARNING: If for some reason these lines aren't sourced,
+#   they're set to 500 (default), which may cause history loss.
+#   Try investigating whatever is interfering the sourcing when you end up with
+#   a nuked history. Also backup often.
 export HISTSIZE=999999
 export HISTFILESIZE=999999
 
