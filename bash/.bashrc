@@ -119,6 +119,12 @@ PROMPT_COMMAND='PS1=$(get_ps1)'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
+# Narrow man pages
+# https://stackoverflow.com/a/61015157
+# shellcheck disable=SC2034
+max_manwidth=100
+alias man='MANWIDTH=$((COLUMNS > max_manwidth ? max_manwidth : COLUMNS)) man'
+
 # Colorize and format less
 # https://wiki.archlinux.org/index.php/Color_output_in_console#man
 
