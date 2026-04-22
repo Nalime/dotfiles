@@ -6,18 +6,16 @@ return {
     event = { "BufReadPost", "VimEnter" },
 
     config = function()
-        local lspconfig = require("lspconfig")
-
         -- For server configurations, visit either:
         -- :h lspconfig-all
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
-        lspconfig["bashls"].setup({})
-        lspconfig["clangd"].setup({})
-        lspconfig["cmake"].setup({})
-        lspconfig["jsonls"].setup({})
+        vim.lsp.config("bashls", {})
+        vim.lsp.config("clangd", {})
+        vim.lsp.config("cmake", {})
+        vim.lsp.config("jsonls", {})
 
-        lspconfig["ltex_plus"].setup({
+        vim.lsp.config("ltex_plus", {
             on_attach = function(client, bufnr)
                 require("ltex_extra").setup({
                     load_langs = { "en-US" },
@@ -34,7 +32,7 @@ return {
             },
         })
 
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
                     diagnostics = {
@@ -50,9 +48,9 @@ return {
             },
         })
 
-        lspconfig["marksman"].setup({})
+        vim.lsp.config("marksman", {})
 
-        lspconfig["pyright"].setup({
+        vim.lsp.config("pyright", {
             settings = {
                 python = {
                     analysis = {
@@ -62,7 +60,7 @@ return {
             },
         })
 
-        lspconfig["ts_ls"].setup({})
+        vim.lsp.config("ts_ls", {})
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },
