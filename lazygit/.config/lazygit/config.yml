@@ -6,3 +6,6 @@ gui:
 git:
     pagers:
         - pager: delta --paging=never
+keybinding:
+    universal:
+        return: [<esc>, '<ctrl+[>']
