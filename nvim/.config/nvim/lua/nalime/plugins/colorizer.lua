@@ -1,4 +1,5 @@
 return {
+    -- nvim-colorizer: Highlight hex codes and color names
     "NvChad/nvim-colorizer.lua",
     main = "colorizer",
     event = { "BufReadPost", "VimEnter" },
