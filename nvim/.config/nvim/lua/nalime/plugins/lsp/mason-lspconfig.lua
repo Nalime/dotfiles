@@ -18,6 +18,7 @@ return {
             "clangd",
 
             -- JS/TS
+            "eslint",
             "ts_ls",
 
             -- Lua

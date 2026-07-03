@@ -7,9 +7,6 @@ return {
 
     opts = {
         ensure_installed = {
-            -- JS/TS
-            "eslint_d", -- linter
-
             -- Lua
             "selene", -- linter
             "stylua", -- formatter
@@ -18,10 +15,12 @@ return {
             "black", -- formatter
 
             -- Shell
-            -- "shellcheck", -- linter
+            "shellcheck", -- linter
             "shfmt", -- formatter
         },
         automatic_installation = false,
-        handlers = {},
+        -- > Providing an empty `handlers` will cause all sources to be
+        -- > automatically registered in `null-ls`.
+        -- handlers = {},
     },
 }
