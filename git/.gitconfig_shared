@@ -1,7 +1,8 @@
 [alias]
     fk = commit --amend --no-edit
     st = status -sb
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
+    lg = log --graph --date=format:'%Y-%m-%d %H:%M' \
+         --pretty=format:'%C(auto)%h%d %s %Cblue(%ad)%Creset'
     last = log -p -1
 
 [core]
