@@ -1,6 +1,8 @@
 [alias]
     fk = commit --amend --no-edit
+    st = status -sb
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
+    last = log -p -1
 
 [core]
     pager = delta
@@ -13,3 +15,4 @@
 
 [merge]
     conflictStyle = zdiff3
+    tool = meld
