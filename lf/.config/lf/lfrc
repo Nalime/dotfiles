@@ -83,13 +83,13 @@ cmd follow-link %{{
 # https://github.com/gokcehan/lf/wiki/Tips#yank-paths-into-your-clipboard
 cmd yank-cwd &printf '%s' "$PWD" | xclip -sel clip -i
 cmd yank-paths $printf '%s' "$fx" | xclip -sel clip -i
-cmd yank-dirname &{{
+cmd yank-dirnames &{{
     dirname -- $fx | head -c-1 | xclip -sel clip -i
 }}
-cmd yank-basename &{{
+cmd yank-basenames &{{
     basename -a -- $fx | head -c-1 | xclip -sel clip -i
 }}
-cmd yank-basename-without-extension &{{
+cmd yank-basenames-without-extension &{{
     basename -a -- $fx | cut -d. -f1 | head -c-1 | xclip -sel clip -i
 }}
 
@@ -238,9 +238,9 @@ map U clear
 # Yank file names/paths (mappings from yazi)
 map c. yank-cwd
 map cc yank-paths
-map cd yank-dirname
-map cf yank-basename
-map cn yank-basename-without-extension
+map cd yank-dirnames
+map cf yank-basenames
+map cn yank-basenames-without-extension
 
 # Show custom column in set info
 map za set info size:time:custom
