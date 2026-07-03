@@ -10,11 +10,9 @@ return {
         -- :h lspconfig-all
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
-        vim.lsp.config("bashls", {})
-        vim.lsp.config("clangd", {})
+        -- $Miscellaneous
         vim.lsp.config("cmake", {})
         vim.lsp.config("jsonls", {})
-
         vim.lsp.config("ltex_plus", {
             on_attach = function(client, bufnr)
                 require("ltex_extra").setup({
@@ -31,7 +29,16 @@ return {
                 },
             },
         })
+        vim.lsp.config("marksman", {})
 
+        -- C/C++
+        vim.lsp.config("clangd", {})
+
+        -- JS/TS
+        vim.lsp.config("eslint", {})
+        vim.lsp.config("ts_ls", {})
+
+        -- Lua
         vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
@@ -48,8 +55,7 @@ return {
             },
         })
 
-        vim.lsp.config("marksman", {})
-
+        -- Python
         vim.lsp.config("pyright", {
             settings = {
                 python = {
@@ -60,7 +66,8 @@ return {
             },
         })
 
-        vim.lsp.config("ts_ls", {})
+        -- Shell
+        vim.lsp.config("bashls", {})
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },
