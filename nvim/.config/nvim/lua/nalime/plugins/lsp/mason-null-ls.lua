@@ -7,22 +7,19 @@ return {
 
     opts = {
         ensure_installed = {
-            -- Bash
-            -- "shellcheck", -- linter
-            "shfmt", -- formatter
-
-            -- JavaScript
+            -- JS/TS
             "eslint_d", -- linter
 
             -- Lua
             "selene", -- linter
             "stylua", -- formatter
 
-            -- Markdown
-            "marksman",
-
             -- Python
             "black", -- formatter
+
+            -- Shell
+            -- "shellcheck", -- linter
+            "shfmt", -- formatter
         },
         automatic_installation = false,
         handlers = {},

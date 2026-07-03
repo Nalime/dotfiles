@@ -8,15 +8,26 @@ return {
     opts = {
         automatic_enable = false,
         ensure_installed = {
-            "bashls",
-            "clangd",
+            -- $Miscellaneous
             "cmake",
             "jsonls",
-            "ts_ls",
             "ltex_plus",
-            "lua_ls",
             "marksman",
+
+            -- C/C++
+            "clangd",
+
+            -- JS/TS
+            "ts_ls",
+
+            -- Lua
+            "lua_ls",
+
+            -- Python
             "pyright",
+
+            -- Shell
+            "bashls",
         },
     },
 }
