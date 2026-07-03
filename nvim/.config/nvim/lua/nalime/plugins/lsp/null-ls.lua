@@ -20,6 +20,9 @@ return {
             -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
             -- https://github.com/nvimtools/none-ls.nvim/discussions/81
             sources = {
+                -- General
+                formatting.prettierd,
+
                 -- Lua
                 diagnostics.selene,
                 formatting.stylua,

@@ -7,6 +7,9 @@ return {
 
     opts = {
         ensure_installed = {
+            -- $General
+            "prettierd", -- formatter
+
             -- Lua
             "selene", -- linter
             "stylua", -- formatter
