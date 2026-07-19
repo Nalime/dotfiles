@@ -14,7 +14,10 @@ return {
     -- lualine: Statusline
     -- A fancy replacement of (Neo)Vim's vanilla status bar
     "nvim-lualine/lualine.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "folke/noice.nvim",
+    },
     event = { "BufReadPost", "VimEnter" },
 
     opts = {
@@ -38,7 +41,14 @@ return {
             lualine_c = {
                 { "filename", path = 1 },
             },
-            lualine_x = { spaces, "encoding", eol, "fileformat", "filetype" },
+            lualine_x = {
+                {
+                    require("noice").api.status.mode.get,
+                    cond = require("noice").api.status.mode.has,
+                    color = { fg = "#ff9e64" },
+                },
+                spaces, "encoding", eol, "fileformat", "filetype"
+            },
             lualine_y = { "progress" },
             lualine_z = { "location" },
         },
