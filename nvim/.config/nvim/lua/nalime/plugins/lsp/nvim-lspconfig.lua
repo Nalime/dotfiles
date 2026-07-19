@@ -1,3 +1,64 @@
+local configs = {
+    -- $Miscellaneous
+    cmake = {},
+    jsonls = {},
+    ltex_plus = {
+        on_attach = function(client, bufnr)
+            require("ltex_extra").setup({
+                load_langs = { "en-US" },
+                path = "~/A/ltex",
+            })
+        end,
+        settings = {
+            ltex = {
+                language = "en-US",
+                additionalRules = {
+                    enablePickyRules = true,
+                },
+            },
+        },
+    },
+    marksman = {},
+
+    -- C/C++
+    clangd = {},
+
+    -- JS/TS
+    eslint = {},
+    ts_ls = {},
+
+    -- Lua
+    lua_ls = {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.stdpath("config") .. "/lua"] = true,
+                    },
+                },
+            },
+        },
+    },
+
+    -- Python
+    pyright = {
+        settings = {
+            python = {
+                analysis = {
+                    typeCheckingMode = "off",
+                },
+            },
+        },
+    },
+
+    -- Shell
+    bashls = {},
+}
+
 return {
     -- nvim-lspconfig: Configure LSP servers
     "neovim/nvim-lspconfig",
@@ -10,64 +71,10 @@ return {
         -- :h lspconfig-all
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
-        -- $Miscellaneous
-        vim.lsp.config("cmake", {})
-        vim.lsp.config("jsonls", {})
-        vim.lsp.config("ltex_plus", {
-            on_attach = function(client, bufnr)
-                require("ltex_extra").setup({
-                    load_langs = { "en-US" },
-                    path = "~/A/ltex",
-                })
-            end,
-            settings = {
-                ltex = {
-                    language = "en-US",
-                    additionalRules = {
-                        enablePickyRules = true,
-                    },
-                },
-            },
-        })
-        vim.lsp.config("marksman", {})
-
-        -- C/C++
-        vim.lsp.config("clangd", {})
-
-        -- JS/TS
-        vim.lsp.config("eslint", {})
-        vim.lsp.config("ts_ls", {})
-
-        -- Lua
-        vim.lsp.config("lua_ls", {
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { "vim" },
-                    },
-                    workspace = {
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true,
-                        },
-                    },
-                },
-            },
-        })
-
-        -- Python
-        vim.lsp.config("pyright", {
-            settings = {
-                python = {
-                    analysis = {
-                        typeCheckingMode = "off",
-                    },
-                },
-            },
-        })
-
-        -- Shell
-        vim.lsp.config("bashls", {})
+        for lsp, config in pairs(configs) do
+            vim.lsp.config(lsp, config)
+            vim.lsp.enable(lsp)
+        end
 
         local signs = {
             { name = "DiagnosticSignError", text = "" },
