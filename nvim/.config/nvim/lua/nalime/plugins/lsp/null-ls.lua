@@ -3,7 +3,6 @@ return {
     "nvimtools/none-ls.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "gbprod/none-ls-shellcheck.nvim",
     },
     event = "VeryLazy",
 
@@ -31,8 +30,6 @@ return {
                 formatting.black,
 
                 -- Shell
-                require("none-ls-shellcheck.diagnostics"),
-                require("none-ls-shellcheck.code_actions"),
                 formatting.shfmt,
             },
         })

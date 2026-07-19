@@ -18,7 +18,6 @@ return {
             "black", -- formatter
 
             -- Shell
-            "shellcheck", -- linter
             "shfmt", -- formatter
         },
         automatic_installation = false,
