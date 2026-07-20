@@ -158,7 +158,7 @@ add("n", "<Leader>lw",
     "Expand diagnostic on current line")
 
 add("n", "<Leader>lp",
-    '<Cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
+    '<Cmd>lua vim.diagnostic.goto_prev()<CR>',
     "Previous diagnostic")
 
 add("n", "<Leader>ln",
