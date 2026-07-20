@@ -64,7 +64,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = "williamboman/mason-lspconfig.nvim",
     version = "*",
-    event = { "BufReadPost", "VimEnter" },
+    event = "VeryLazy",
 
     config = function()
         -- For server configurations, visit either:

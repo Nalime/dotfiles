@@ -3,7 +3,20 @@ return {
     "kyazdani42/nvim-tree.lua",
     version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
-    event = "VeryLazy",
+    cmd = {
+        "NvimTreeOpen",
+        "NvimTreeClose",
+        "NvimTreeFocus",
+        "NvimTreeHiTest",
+        "NvimTreeResize",
+        "NvimTreeToggle",
+        "NvimTreeRefresh",
+        "NvimTreeCollapse",
+        "NvimTreeFindFile",
+        "NvimTreeClipboard",
+        "NvimTreeFindFileToggle",
+        "NvimTreeCollapseKeepBuffers",
+    },
 
     opts = {
         disable_netrw = true,

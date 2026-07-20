@@ -1,7 +1,13 @@
 return {
     -- undotree: (Vim plugin) Undo tree traversal and visualization
     "mbbill/undotree",
-    event = "VeryLazy",
+    cmd = {
+        "UndotreeHide",
+        "UndotreeShow",
+        "UndotreeFocus",
+        "UndotreeToggle",
+        "UndotreePersistUndo",
+    },
 
     init = function()
         vim.g.undotree_DiffAutoOpen = 0

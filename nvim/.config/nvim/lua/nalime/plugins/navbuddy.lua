@@ -8,7 +8,7 @@ return {
         -- "numToStr/Comment.nvim",        -- Optional
         "nvim-telescope/telescope.nvim" -- Optional
     },
-    event = "VeryLazy",
+    cmd = "Navbuddy",
 
     opts = {
         window = {
