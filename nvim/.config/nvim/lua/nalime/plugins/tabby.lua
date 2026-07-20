@@ -9,6 +9,7 @@ local theme = {
 }
 
 return {
+    -- tabby: Tabline
     "nanozuki/tabby.nvim",
     version = "*",
     event = "VeryLazy",
