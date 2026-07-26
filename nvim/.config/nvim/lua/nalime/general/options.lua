@@ -10,6 +10,10 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
+-- Indent wrapped lines
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "min:60"
+
 -- Context around cursor
 vim.opt.scrolloff = 5
 
