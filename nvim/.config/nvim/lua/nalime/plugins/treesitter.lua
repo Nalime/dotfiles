@@ -310,7 +310,6 @@ return {
             "yaml",
             "yang",
             "yuck",
-            "zeek",
             "zig",
             "ziggy",
             "ziggy_schema",
