@@ -15,9 +15,14 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require("lazy")
 
 local plugins = {
-    { import = "nalime.themes" },
-    { import = "nalime.plugins" },
+    -- { import = "nalime.plugins" },
+    { import = "nalime.plugins.integration" },
     { import = "nalime.plugins.lsp" },
+    { import = "nalime.plugins.misc" },
+    { import = "nalime.plugins.motions" },
+    { import = "nalime.plugins.tools" },
+    { import = "nalime.plugins.ui" },
+    { import = "nalime.themes" },
 }
 
 local config = {
