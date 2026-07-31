@@ -35,7 +35,7 @@ return {
     ft = "markdown",
 
     opts = {
-        dir = "~/A/obsidian-vault",
+        dir = vim.g.obsidian_root,
         notes_subdir = "00 Working",
         daily_notes = {
             folder = "02 Periodic",
