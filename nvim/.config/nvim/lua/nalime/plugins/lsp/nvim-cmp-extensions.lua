@@ -11,6 +11,11 @@ return {
         event = "VeryLazy",
     },
     {
+        "saadparwaiz1/cmp_luasnip",
+        dependencies = "hrsh7th/nvim-cmp",
+        event = "VeryLazy",
+    },
+    {
         "hrsh7th/cmp-buffer",
         dependencies = "hrsh7th/nvim-cmp",
         event = "VeryLazy",
