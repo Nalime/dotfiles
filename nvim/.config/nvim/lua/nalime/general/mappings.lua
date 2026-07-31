@@ -106,6 +106,10 @@ add_ns("c", "<A-f>", "<S-Right>", "Next word")
 
 -- Top-level mappings
 
+add("n", "<Leader>m",
+    "<Cmd>Noice<CR>",
+    "Show messages")
+
 add("n", "<Leader>e",
     "<Cmd>NvimTreeToggle<CR>",
     "Open file explorer")
