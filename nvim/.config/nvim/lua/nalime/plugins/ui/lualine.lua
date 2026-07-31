@@ -30,6 +30,7 @@ return {
                 "NvimTree",
                 "alpha",
                 "diff",
+                "leetcode",
                 "tsplayground",
                 "undotree",
             },

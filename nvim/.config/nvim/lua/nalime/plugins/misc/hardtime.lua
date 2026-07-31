@@ -26,6 +26,7 @@ return {
         disabled_filetypes = {
             "alpha",
             "lazy",
+            "leetcode",
             "mason",
             "netrw",
             "qf",
