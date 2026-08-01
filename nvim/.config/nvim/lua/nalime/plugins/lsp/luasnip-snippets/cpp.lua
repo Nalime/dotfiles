@@ -31,6 +31,16 @@ local k = require("luasnip.nodes.key_indexer").new_key
 
 return {
     s("for", fmt(
+        "for (int {} = {}; {} < {}; ++{})",
+        {
+            i(1, "_"),
+            i(2, "LOWER"),
+            rep(1),
+            i(3, "UPPER"),
+            rep(1),
+        }
+    )),
+    s("for0", fmt(
         "for (int {} = 0; {} < {}; ++{})",
         {
             i(1, "_"),
@@ -49,6 +59,16 @@ return {
         }
     )),
     s("rof", fmt(
+        "for (int {} = {} - 1; {} >= {}; --{})",
+        {
+            i(1, "_"),
+            i(2, "UPPER"),
+            rep(1),
+            i(3, "LOWER"),
+            rep(1),
+        }
+    )),
+    s("rof0", fmt(
         "for (int {} = {} - 1; {} >= 0; --{})",
         {
             i(1, "_"),
@@ -133,6 +153,12 @@ return {
             i(1, "ll"),
             i(2, "SIZE"),
             i(3, "kMod"),
+        }
+    )),
+    s("sz", fmt(
+        "int(size({}))",
+        {
+            i(1),
         }
     )),
     s("max", fmt(
