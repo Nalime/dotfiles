@@ -71,6 +71,7 @@ add("i", "{;",      "{<CR>};<Esc>O", "Make {}; block")
 add("i", "{:",      "{<CR>};<Esc>O", "Make {}; block")
 add("i", "{,",      "{<CR>},<Esc>O", "Make {}, block")
 add("i", "{<",      "{<CR>},<Esc>O", "Make {}, block")
+add("i", "{)",      "{<CR>})<Esc>O", "Make {}) block")
 
 -- Easier access to "+ register
 add({"n", "v"}, "<Leader>p", '"+p', '[Quick] "+p')
@@ -89,12 +90,14 @@ add("n", "<Leader>S", '"+S', '[Quick] "+S') -- v_S activates nvim-surround
 
 -- Emacs-style (lol) command-line editing
 rm("c", "<C-b>")
+rm("c", "<C-f>")
 add_ns("c", "<C-a>", "<Home>",    "To start")
 -- add_ns("c", "<C-e>", "<End>",     "To end")
 add_ns("c", "<C-b>", "<Left>",    "Prev character")
 add_ns("c", "<C-f>", "<Right>",   "Next character")
-add_ns("c", "<A-b>", "<S-Left>",  "Prev word")
-add_ns("c", "<A-f>", "<S-Right>", "Next word")
+add_ns("c", "<A-b>", "<S-Left>",  "Prev WORD")
+add_ns("c", "<A-f>", "<S-Right>", "Next WORD")
+add_ns("c", "<A-e>", "<C-f>",     "Open command-line window")
 
 ---------------------
 -- Plugin mappings --
