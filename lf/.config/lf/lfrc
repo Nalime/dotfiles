@@ -185,7 +185,7 @@ cmd on-cd &{{
     GIT_PS1_SHOWUNTRACKEDFILES=auto
     GIT_PS1_SHOWUPSTREAM=auto
     GIT_PS1_COMPRESSSPARSESTATE=auto
-    fmt+="$(__git_ps1 " (%s)")" || true
+    fmt+="$(__git_ps1 " (%s)" | tr -d '')" || true
 
     # Set title
     lf -remote "send $id tty-write \"\033]0;lf: ${PWD/#$HOME/\~}\007\""
