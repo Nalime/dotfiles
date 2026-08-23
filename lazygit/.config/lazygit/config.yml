@@ -4,8 +4,8 @@ gui:
     shortTimeFormat: 15:04
     showNumstatInFilesView: true
 git:
-    pagers:
-        - pager: delta --paging=never
+    diffRenderers:
+        - command: delta --paging=never
 keybinding:
     universal:
-        return: [<esc>, '<ctrl+[>']
+        return: [<esc>, "<ctrl+[>"]
