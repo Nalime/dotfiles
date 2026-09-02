@@ -101,7 +101,7 @@ return {
     s("ov", fmt(
         [[
             for (int i = 0; i < sz({}); ++i) {{
-                cout << {}[i] << " \n"[i + 1 == sz({});
+                cout << {}[i] << " \n"[i + 1 == sz({})];
             }}
         ]],
         {
@@ -173,6 +173,6 @@ return {
             i(1, "TYPE"),
         }
     )),
-    s("mod1", {t("constexpr int kMod = 1e9 + 7;")}),
+    s("mod1", {t("constexpr int kMod = int(1e9) + 7;")}),
     s("mod9", {t("constexpr int kMod = 998244353;")}),
 }
