@@ -141,6 +141,9 @@ export LESS_TERMCAP_me=${format["reset"]}
 export LESS_TERMCAP_us=${format["italic"]}${format["underline"]}${color["l_gray"]}
 export LESS_TERMCAP_ue=${format["reset"]}
 
+# Set MANPAGER (for Python's `help`)
+export MANPAGER=less
+
 #########################
 # Bash history settings #
 #########################
