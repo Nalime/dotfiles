@@ -230,6 +230,8 @@ map Q quit-and-cd
 map g/ cd /
 map gc cd ~/.config/
 map gd cd ~/Downloads/
+map gl cd ~/.local/
+map gs cd ~/.local/share/
 map gf follow-link
 
 map c
