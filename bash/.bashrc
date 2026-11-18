@@ -181,6 +181,10 @@ kpr_path=~/A/kyopro/tools/main
 # shellcheck source=A/kyopro/tools/main
 [[ -f "$kpr_path" ]] && . "$kpr_path"
 
+# Python
+export PYTHONSTARTUP=~/.pythonrc.py
+alias bpy='bpython'
+
 # lfcd
 # https://github.com/gokcehan/lf/wiki/Tips#cd-to-current-directory-on-quit
 lf() {
