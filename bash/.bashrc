@@ -46,6 +46,9 @@ export VISUAL=nvim
 # Set timestamp format
 export TIME_STYLE='+%Y-%m-%d %H:%M:%S'
 
+# Opt out telemetry (https://donottrack.sh/)
+export DO_NOT_TRACK=1
+
 # Fancy prompt
 # Additionally, on nonzero return, the value is shown and the face changes
 
